@@ -8,8 +8,7 @@ The benchmark includes:
 
 - **Automatic compilation** using gfortran
 - **Test case execution** with configurable timeouts
-- **Detailed result analysis** with pass@1 metrics
-- **Comprehensive error categorization** (compilation errors, runtime errors, incorrect output)
+- **Detailed result analysis** with pass@1 metrics and Comprehensive error categorization (compilation errors, runtime errors, incorrect output)
 
   **THE BENCHMARK DOES NOT HANDLE LLM INFERENCE** but expects a well-formatted jsonl file as input.
 
