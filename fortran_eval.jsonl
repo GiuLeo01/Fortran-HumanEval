@@ -1,0 +1,7012 @@
+[
+  {
+    "task": "Write a Fortran90 program that checks if in given array of numbers, are any two numbers closer to each other than given threshold.",
+    "signature": "bool has_close_elements(int numbers_len, float[] numbers, float threshold)",
+    "example": "Input: 3 \n 1.0 2.0 3.0 \n 0.5 | Output: false",
+    "tests": [
+      {
+        "input": "6 \n 1.0 2.0 3.9 4.0 5.0 2.2 \n 0.3",
+        "output": true
+      },
+      {
+        "input": "6 \n 1.0 2.0 3.9 4.0 5.0 2.2 \n 0.05",
+        "output": false
+      },
+      {
+        "input": "5 \n 1.0 2.0 5.9 4.0 5.0 \n 0.95",
+        "output": true
+      },
+      {
+        "input": "5 \n 1.0 2.0 5.9 4.0 5.0 \n 0.8",
+        "output": false
+      },
+      {
+        "input": "6 \n 1.0 2.0 3.0 4.0 5.0 2.0 \n 0.1",
+        "output": true
+      },
+      {
+        "input": "5 \n 1.1 2.2 3.1 4.1 5.1 \n 1.0",
+        "output": true
+      },
+      {
+        "input": "5 \n 1.1 2.2 3.1 4.1 5.1 \n 0.5",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that separates groups of nested parentheses from the input string and returns an array of strings.",
+    "signature": "string[] separate_paren_groups(string paren_string)",
+    "example": "Input: ( ) (( )) (( )( )) | Output: () (()) (()())",
+    "tests": [
+      {
+        "input": "(()()) ((())) () ((())()())",
+        "output": [
+          "(()())",
+          "((()))",
+          "()",
+          "((())()())"
+        ]
+      },
+      {
+        "input": "() (()) ((())) (((())))",
+        "output": [
+          "()",
+          "(())",
+          "((()))",
+          "(((())))"
+        ]
+      },
+      {
+        "input": "(()(())((())))",
+        "output": [
+          "(()(())((())))"
+        ]
+      },
+      {
+        "input": "( ) (( )) (( )( ))",
+        "output": [
+          "()",
+          "(())",
+          "(()())"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the decimal part of a given positive floating point number.",
+    "signature": "float truncate_number(float number)",
+    "example": "Input: 3.5 | Output: 0.5",
+    "tests": [
+      {
+        "input": "3.5",
+        "output": 0.5
+      },
+      {
+        "input": "1.33",
+        "output": 0.33
+      },
+      {
+        "input": "123.456",
+        "output": 0.456
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that detects if at any point in a sequence of deposit and withdrawal operations on an account starting at zero, the balance falls below zero.",
+    "signature": "bool below_zero(int operations_len, int[] operations)",
+    "example": "Input: 3 \n 1 2 3 | Output: false",
+    "tests": [
+      {
+        "input": "0",
+        "output": false
+      },
+      {
+        "input": "6 \n 1 2 -3 1 2 -3",
+        "output": false
+      },
+      {
+        "input": "5 \n 1 2 -4 5 6",
+        "output": true
+      },
+      {
+        "input": "8 \n 1 -1 2 -2 5 -5 4 -4",
+        "output": false
+      },
+      {
+        "input": "8 \n 1 -1 2 -2 5 -5 4 -5",
+        "output": true
+      },
+      {
+        "input": "8 \n 1 -2 2 -2 5 -5 4 -4",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that calculates the mean absolute deviation around the mean for a given array of numbers.",
+    "signature": "float mean_absolute_deviation(int numbers_len, float[] numbers)",
+    "example": "Input: 4 \n 1.0 2.0 3.0 4.0 | Output: 1.0",
+    "tests": [
+      {
+        "input": "3 \n 1.0 2.0 3.0",
+        "output": 0.66666667
+      },
+      {
+        "input": "4 \n 1.0 2.0 3.0 4.0",
+        "output": 1.0
+      },
+      {
+        "input": "5 \n 1.0 2.0 3.0 4.0 5.0",
+        "output": 1.2
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that inserts a given delimiter between every two consecutive elements of an array of integers.",
+    "signature": "int[] intersperse(int numbers_len, int[] numbers, int delimeter)",
+    "example": "Input: 3 \n 1 2 3 \n 4 | Output: 1 4 2 4 3",
+    "tests": [
+      {
+        "input": "0 \n 7",
+        "output": []
+      },
+      {
+        "input": "4 \n 5 6 3 2 \n 8",
+        "output": [
+          5,
+          8,
+          6,
+          8,
+          3,
+          8,
+          2
+        ]
+      },
+      {
+        "input": "3 \n 2 2 2 \n 2",
+        "output": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a string with multiple groups of nested parentheses separated by spaces, returns an array of integers representing the deepest level of nesting for each group.",
+    "signature": "int[] parse_nested_parens(string paren_string)",
+    "example": "Input: (()()) ((())) () ((())()()) | Output: 2 3 1 3",
+    "tests": [
+      {
+        "input": "(()()) ((())) () ((())()())",
+        "output": [
+          2,
+          3,
+          1,
+          3
+        ]
+      },
+      {
+        "input": "() (()) ((())) (((())))",
+        "output": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "input": "(()(())((())))",
+        "output": [
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that filters an array of strings, returning only those that contain a given substring.",
+    "signature": "string[] filter_by_substring(int strings_len, string[] strings, string substring)",
+    "example": "Input: 4 \n abc bacd cde array \n a | Output: abc bacd array",
+    "tests": [
+      {
+        "input": "0 \n john",
+        "output": []
+      },
+      {
+        "input": "6 \n xxx asd xxy \"john doe\" xxxAAA xxx \n xxx",
+        "output": [
+          "xxx",
+          "xxxAAA",
+          "xxx"
+        ]
+      },
+      {
+        "input": "6 \n xxx asd aaaxxy \"john doe\" xxxAAA xxx \n xx",
+        "output": [
+          "xxx",
+          "aaaxxy",
+          "xxxAAA",
+          "xxx"
+        ]
+      },
+      {
+        "input": "4 \n grunt trumpet prune gruesome \n run",
+        "output": [
+          "grunt",
+          "prune"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an array of integers, returns a tuple consisting of the sum and the product of all the integers.",
+    "signature": "tuple sum_product(int numbers_len, int[] numbers)",
+    "example": "Input: 0 | Output: 0 1",
+    "tests": [
+      {
+        "input": "0",
+        "output": [
+          0,
+          1
+        ]
+      },
+      {
+        "input": "3 \n 1 1 1",
+        "output": [
+          3,
+          1
+        ]
+      },
+      {
+        "input": "2 \n 100 0",
+        "output": [
+          100,
+          0
+        ]
+      },
+      {
+        "input": "3 \n 3 5 7",
+        "output": [
+          15,
+          105
+        ]
+      },
+      {
+        "input": "1 \n 10",
+        "output": [
+          10,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an array of integers, returns an array of rolling maximum values found until each moment in the sequence.",
+    "signature": "int[] rolling_max(int numbers_len, int[] numbers)",
+    "example": "Input: 7 \n 1 2 3 2 3 4 2 | Output: 1 2 3 3 3 4 4",
+    "tests": [
+      {
+        "input": "0",
+        "output": []
+      },
+      {
+        "input": "4 \n 1 2 3 4",
+        "output": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "input": "4 \n 4 3 2 1",
+        "output": [
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "input": "5 \n 3 2 3 100 3",
+        "output": [
+          3,
+          3,
+          3,
+          100,
+          100
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that finds the shortest palindrome that begins with a supplied string.",
+    "signature": "string make_palindrome(string)",
+    "example": "Input: cat | Output: catac",
+    "tests": [
+      {
+        "input": "",
+        "output": ""
+      },
+      {
+        "input": "x",
+        "output": "x"
+      },
+      {
+        "input": "xyz",
+        "output": "xyzyx"
+      },
+      {
+        "input": "xyx",
+        "output": "xyx"
+      },
+      {
+        "input": "jerry",
+        "output": "jerryrrej"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that performs binary XOR on two input strings consisting only of 1s and 0s and returns the result as a string.",
+    "signature": "string string_xor(string a, string b)",
+    "example": "Input: 010\n110 | Output: 100",
+    "tests": [
+      {
+        "input": "111000\n101010",
+        "output": "010010"
+      },
+      {
+        "input": "1\n1",
+        "output": "0"
+      },
+      {
+        "input": "0101\n0000",
+        "output": "0101"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, out of an array of strings, returns the longest one. In case of strings of the same length, return the first one; return None if the input array is empty.",
+    "signature": "string longest(int strings_len, string[] strings)",
+    "example": "Input: 3\nx y z | Output: x",
+    "tests": [
+      {
+        "input": "0",
+        "output": null
+      },
+      {
+        "input": "3\nx y z",
+        "output": "x"
+      },
+      {
+        "input": "6\nx yyy zzzz www kkkk abc",
+        "output": "zzzz"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the greatest common divisor of two integers.",
+    "signature": "int greatest_common_divisor(int a, int b)",
+    "example": "Input: 3\n5 | Output: 1",
+    "tests": [
+      {
+        "input": "3\n7",
+        "output": 1
+      },
+      {
+        "input": "10\n15",
+        "output": 5
+      },
+      {
+        "input": "49\n14",
+        "output": 7
+      },
+      {
+        "input": "144\n60",
+        "output": 12
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns an array of all prefixes from shortest to longest of the input string.",
+    "signature": "string[] all_prefixes(string)",
+    "example": "Input: abc | Output: a ab abc",
+    "tests": [
+      {
+        "input": "",
+        "output": []
+      },
+      {
+        "input": "asdfgh",
+        "output": [
+          "a",
+          "as",
+          "asd",
+          "asdf",
+          "asdfg",
+          "asdfgh"
+        ]
+      },
+      {
+        "input": "WWW",
+        "output": [
+          "W",
+          "WW",
+          "WWW"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns a string containing space\u2010delimited numbers starting from 0 up to n inclusive.",
+    "signature": "string string_sequence(int n)",
+    "example": "Input: 0 | Output: 0",
+    "tests": [
+      {
+        "input": "0",
+        "output": "0"
+      },
+      {
+        "input": "3",
+        "output": "0 1 2 3"
+      },
+      {
+        "input": "10",
+        "output": "0 1 2 3 4 5 6 7 8 9 10"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a string, finds out how many distinct characters (regardless of case) it consists of.",
+    "signature": "int count_distinct_characters(string)",
+    "example": "Input: xyzXYZ | Output: 3",
+    "tests": [
+      {
+        "input": "",
+        "output": 0
+      },
+      {
+        "input": "abcde",
+        "output": 5
+      },
+      {
+        "input": "abcdecadeCADE",
+        "output": 5
+      },
+      {
+        "input": "aaaaAAAAaaaa",
+        "output": 1
+      },
+      {
+        "input": "Jerry jERRY JeRRRY",
+        "output": 5
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that parses a string representing musical notes in a special ASCII format and returns an array of integers corresponding to how many beats each note lasts.",
+    "signature": "int[] parse_music(string music_string)",
+    "example": "Input: o o| .| o| o| .| .| .| .| o o | Output: 4 2 1 2 2 1 1 1 1 4 4",
+    "tests": [
+      {
+        "input": "",
+        "output": []
+      },
+      {
+        "input": "o o o o",
+        "output": [
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "input": ".| .| .| .|",
+        "output": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "input": "o| o| .| .| o o o o",
+        "output": [
+          2,
+          2,
+          1,
+          1,
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "input": "o| .| o| .| o o| o o|",
+        "output": [
+          2,
+          1,
+          2,
+          1,
+          4,
+          2,
+          4,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that finds how many times a given substring can be found in the original string, counting overlapping occurrences.",
+    "signature": "int how_many_times(string string, string substring)",
+    "example": "Input: aaa\na | Output: 3",
+    "tests": [
+      {
+        "input": "xyxyxyx\nx",
+        "output": 4
+      },
+      {
+        "input": "cacacacac\ncac",
+        "output": 4
+      },
+      {
+        "input": "john doe\njohn",
+        "output": 1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a space\u2010delimited string of number words from 'zero' to 'nine' and returns the string with numbers sorted from smallest to largest.",
+    "signature": "string sort_numbers(string)",
+    "example": "Input: three one five | Output: one three five",
+    "tests": [
+      {
+        "input": "",
+        "output": ""
+      },
+      {
+        "input": "three",
+        "output": "three"
+      },
+      {
+        "input": "three five nine",
+        "output": "three five nine"
+      },
+      {
+        "input": "five zero four seven nine eight",
+        "output": "zero four five seven eight nine"
+      },
+      {
+        "input": "six five four three two one zero",
+        "output": "zero one two three four five six"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that from a supplied array of numbers (of length at least two) select and return two that are the closest to each other and return them in order (smaller number, larger number).",
+    "signature": "tuple find_closest_elements(int numbers_len, float[] numbers)",
+    "example": "Input: 6 \n 1.0 2.0 3.0 4.0 5.0 2.2 | Output: 2.0 2.2",
+    "tests": [
+      {
+        "input": "6 \n 1.0 2.0 3.9 4.0 5.0 2.2",
+        "output": [
+          3.9,
+          4.0
+        ]
+      },
+      {
+        "input": "5 \n 1.0 2.0 5.9 4.0 5.0",
+        "output": [
+          5.0,
+          5.9
+        ]
+      },
+      {
+        "input": "6 \n 1.0 2.0 3.0 4.0 5.0 2.2",
+        "output": [
+          2.0,
+          2.2
+        ]
+      },
+      {
+        "input": "6 \n 1.0 2.0 3.0 4.0 5.0 2.0",
+        "output": [
+          2.0,
+          2.0
+        ]
+      },
+      {
+        "input": "5 \n 1.1 2.2 3.1 4.1 5.1",
+        "output": [
+          2.2,
+          3.1
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that given an array of numbers (of at least two elements), applies a linear transform to that array, such that the smallest number will become 0 and the largest will become 1.",
+    "signature": "float[] rescale_to_unit(int numbers_len, float[] numbers)",
+    "example": "Input: 5 \n 1.0 2.0 3.0 4.0 5.0 | Output: 0.0 0.25 0.5 0.75 1.0",
+    "tests": [
+      {
+        "input": "2 \n 2.0 49.9",
+        "output": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "input": "2 \n 100.0 49.9",
+        "output": [
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "input": "5 \n 1.0 2.0 3.0 4.0 5.0",
+        "output": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      {
+        "input": "5 \n 2.0 1.0 5.0 3.0 4.0",
+        "output": [
+          0.25,
+          0.0,
+          1.0,
+          0.5,
+          0.75
+        ]
+      },
+      {
+        "input": "5 \n 12.0 11.0 15.0 13.0 14.0",
+        "output": [
+          0.25,
+          0.0,
+          1.0,
+          0.5,
+          0.75
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that filters a supplied array of values for integers only.",
+    "signature": "int[] filter_integers(int values_len, any[] values)",
+    "example": "Input: 3 \n a 3.14 5 | Output: 5",
+    "tests": [
+      {
+        "input": "0",
+        "output": []
+      },
+      {
+        "input": "6 \n 4 {} [] 23.2 9 adasd",
+        "output": [
+          4,
+          9
+        ]
+      },
+      {
+        "input": "6 \n 3 c 3 3 a b",
+        "output": [
+          3,
+          3,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the length of a given string.",
+    "signature": "int strlen(string string)",
+    "example": "Input: abc | Output: 3",
+    "tests": [
+      {
+        "input": "",
+        "output": 0
+      },
+      {
+        "input": "x",
+        "output": 1
+      },
+      {
+        "input": "asdasnakj",
+        "output": 9
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that for a given number n, finds the largest number that divides n evenly, smaller than n.",
+    "signature": "int largest_divisor(int n)",
+    "example": "Input: 15 | Output: 5",
+    "tests": [
+      {
+        "input": "3",
+        "output": 1
+      },
+      {
+        "input": "7",
+        "output": 1
+      },
+      {
+        "input": "10",
+        "output": 5
+      },
+      {
+        "input": "100",
+        "output": 50
+      },
+      {
+        "input": "49",
+        "output": 7
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns an array of prime factors of a given integer in the order from smallest to largest, listing each factor as many times as it appears in the factorization.",
+    "signature": "int[] factorize(int n)",
+    "example": "Input: 8 | Output: 2 2 2",
+    "tests": [
+      {
+        "input": "2",
+        "output": [
+          2
+        ]
+      },
+      {
+        "input": "4",
+        "output": [
+          2,
+          2
+        ]
+      },
+      {
+        "input": "8",
+        "output": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "input": "57",
+        "output": [
+          3,
+          19
+        ]
+      },
+      {
+        "input": "3249",
+        "output": [
+          3,
+          3,
+          19,
+          19
+        ]
+      },
+      {
+        "input": "185193",
+        "output": [
+          3,
+          3,
+          3,
+          19,
+          19,
+          19
+        ]
+      },
+      {
+        "input": "20577",
+        "output": [
+          3,
+          19,
+          19,
+          19
+        ]
+      },
+      {
+        "input": "18",
+        "output": [
+          2,
+          3,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that from a supplied array of integers, removes all elements that occur more than once, keeping the order of the remaining elements the same as in the input.",
+    "signature": "int[] remove_duplicates(int numbers_len, int[] numbers)",
+    "example": "Input: 5 \n 1 2 3 2 4 | Output: 1 3 4",
+    "tests": [
+      {
+        "input": "0",
+        "output": []
+      },
+      {
+        "input": "4 \n 1 2 3 4",
+        "output": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "input": "7 \n 1 2 3 2 4 3 5",
+        "output": [
+          1,
+          4,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that for a given string, flips its lowercase characters to uppercase and uppercase characters to lowercase.",
+    "signature": "string flip_case(string string)",
+    "example": "Input: Hello | Output: hELLO",
+    "tests": [
+      {
+        "input": "",
+        "output": ""
+      },
+      {
+        "input": "Hello!",
+        "output": "hELLO!"
+      },
+      {
+        "input": "These violent delights have violent ends",
+        "output": "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that concatenates a supplied array of strings into a single string.",
+    "signature": "string concatenate(int strings_len, string[] strings)",
+    "example": "Input: 3 \n a b c | Output: abc",
+    "tests": [
+      {
+        "input": "0",
+        "output": ""
+      },
+      {
+        "input": "3 \n x y z",
+        "output": "xyz"
+      },
+      {
+        "input": "5 \n x y z w k",
+        "output": "xyzwk"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that filters a supplied array of strings for only those that start with a given prefix.",
+    "signature": "string[] filter_by_prefix(int strings_len, string[] strings, string prefix)",
+    "example": "Input: 4 \n abc bcd cde array \n a | Output: abc array",
+    "tests": [
+      {
+        "input": "0 \n john",
+        "output": []
+      },
+      {
+        "input": "6 \n xxx asd xxy \"john doe\" xxxAAA xxx \n xxx",
+        "output": [
+          "xxx",
+          "xxxAAA",
+          "xxx"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns only positive numbers in the array.",
+    "signature": "int[] get_positive(int l_len, int[] l)",
+    "example": "Input: 5 \n -1 2 -4 5 6 | Output: 2 5 6",
+    "tests": [
+      {
+        "input": "5 \n -1 -2 4 5 6",
+        "output": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "input": "11 \n 5 3 -5 2 3 3 9 0 123 1 -10",
+        "output": [
+          5,
+          3,
+          2,
+          3,
+          3,
+          9,
+          123,
+          1
+        ]
+      },
+      {
+        "input": "2 \n -1 -2",
+        "output": []
+      },
+      {
+        "input": "0 \n",
+        "output": []
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns true if a given number is prime, and false otherwise.",
+    "signature": "bool is_prime(int n)",
+    "example": "Input: 6 | Output: false",
+    "tests": [
+      {
+        "input": "6",
+        "output": false
+      },
+      {
+        "input": "101",
+        "output": true
+      },
+      {
+        "input": "11",
+        "output": true
+      },
+      {
+        "input": "13441",
+        "output": true
+      },
+      {
+        "input": "61",
+        "output": true
+      },
+      {
+        "input": "4",
+        "output": false
+      },
+      {
+        "input": "1",
+        "output": false
+      },
+      {
+        "input": "5",
+        "output": true
+      },
+      {
+        "input": "11",
+        "output": true
+      },
+      {
+        "input": "17",
+        "output": true
+      },
+      {
+        "input": "85",
+        "output": false
+      },
+      {
+        "input": "77",
+        "output": false
+      },
+      {
+        "input": "255379",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that finds a zero of a polynomial given its coefficients in an array (with an even number of elements).",
+    "signature": "float find_zero(int xs_len, float[] xs)",
+    "example": "Input: 2 \n 1 2 | Output: -0.5",
+    "tests": [
+      {
+        "input": "2 \n 1 2",
+        "output": -0.5
+      },
+      {
+        "input": "4 \n -6 11 -6 1",
+        "output": 1.0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns an array such that the elements at indices divisible by three are replaced by their sorted order while the other elements remain unchanged.",
+    "signature": "int[] sort_third(int l_len, int[] l)",
+    "example": "Input: 3 \n 1 2 3 | Output: 1 2 3",
+    "tests": [
+      {
+        "input": "3 \n 1 2 3",
+        "output": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "input": "7 \n 5 6 3 4 8 9 2",
+        "output": [
+          2,
+          6,
+          3,
+          4,
+          8,
+          9,
+          5
+        ]
+      },
+      {
+        "input": "7 \n 5 8 3 4 6 9 2",
+        "output": [
+          2,
+          8,
+          3,
+          4,
+          6,
+          9,
+          5
+        ]
+      },
+      {
+        "input": "7 \n 5 6 9 4 8 3 2",
+        "output": [
+          2,
+          6,
+          9,
+          4,
+          8,
+          3,
+          5
+        ]
+      },
+      {
+        "input": "8 \n 5 6 3 4 8 9 2 1",
+        "output": [
+          2,
+          6,
+          3,
+          4,
+          8,
+          9,
+          5,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns sorted unique elements in an array.",
+    "signature": "int[] unique(int l_len, int[] l)",
+    "example": "Input: 9 \n 5 3 5 2 3 3 9 0 123 | Output: 0 2 3 5 9 123",
+    "tests": [
+      {
+        "input": "9 \n 5 3 5 2 3 3 9 0 123",
+        "output": [
+          0,
+          2,
+          3,
+          5,
+          9,
+          123
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the maximum element in the array.",
+    "signature": "int max_element(int l_len, int[] l)",
+    "example": "Input: 3 \n 1 2 3 | Output: 3",
+    "tests": [
+      {
+        "input": "3 \n 1 2 3",
+        "output": 3
+      },
+      {
+        "input": "11 \n 5 3 -5 2 -3 3 9 0 124 1 -10",
+        "output": 124
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the number of times the digit 7 appears in integers less than n which are divisible by 11 or 13.",
+    "signature": "int fizz_buzz(int n)",
+    "example": "Input: 50 | Output: 0",
+    "tests": [
+      {
+        "input": "50",
+        "output": 0
+      },
+      {
+        "input": "78",
+        "output": 2
+      },
+      {
+        "input": "79",
+        "output": 3
+      },
+      {
+        "input": "100",
+        "output": 3
+      },
+      {
+        "input": "200",
+        "output": 6
+      },
+      {
+        "input": "4000",
+        "output": 192
+      },
+      {
+        "input": "10000",
+        "output": 639
+      },
+      {
+        "input": "100000",
+        "output": 8026
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns an array such that the elements at odd indices remain unchanged while the elements at even indices are sorted.",
+    "signature": "int[] sort_even(int l_len, int[] l)",
+    "example": "Input: 3 \n 1 2 3 | Output: 1 2 3",
+    "tests": [
+      {
+        "input": "3 \n 1 2 3",
+        "output": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "input": "11 \n 5 3 -5 2 -3 3 9 0 123 1 -10",
+        "output": [
+          -10,
+          3,
+          -5,
+          2,
+          -3,
+          3,
+          5,
+          0,
+          9,
+          1,
+          123
+        ]
+      },
+      {
+        "input": "10 \n 5 8 -12 4 23 2 3 11 12 -10",
+        "output": [
+          -12,
+          8,
+          3,
+          4,
+          5,
+          2,
+          12,
+          11,
+          23,
+          -10
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that decodes a string encoded by cycling groups of three characters.",
+    "signature": "string decode_cyclic(string s)",
+    "example": "Input: bca | Output: abc",
+    "tests": [
+      {
+        "input": "bca",
+        "output": "abc"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the n-th number that is both a Fibonacci number and prime.",
+    "signature": "int prime_fib(int n)",
+    "example": "Input: 1 | Output: 2",
+    "tests": [
+      {
+        "input": "1",
+        "output": 2
+      },
+      {
+        "input": "2",
+        "output": 3
+      },
+      {
+        "input": "3",
+        "output": 5
+      },
+      {
+        "input": "4",
+        "output": 13
+      },
+      {
+        "input": "5",
+        "output": 89
+      },
+      {
+        "input": "6",
+        "output": 233
+      },
+      {
+        "input": "7",
+        "output": 1597
+      },
+      {
+        "input": "8",
+        "output": 28657
+      },
+      {
+        "input": "9",
+        "output": 514229
+      },
+      {
+        "input": "10",
+        "output": 433494437
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if in given array of integers, there are three distinct elements that sum to zero.",
+    "signature": "bool triples_sum_to_zero(int l_len, int[] l)",
+    "example": "Input: 4 \n 1 3 5 0 | Output: false",
+    "tests": [
+      {
+        "input": "4 \n 1 3 5 0",
+        "output": false
+      },
+      {
+        "input": "4 \n 1 3 5 -1",
+        "output": false
+      },
+      {
+        "input": "4 \n 1 3 -2 1",
+        "output": true
+      },
+      {
+        "input": "4 \n 1 2 3 7",
+        "output": false
+      },
+      {
+        "input": "4 \n 1 2 5 7",
+        "output": false
+      },
+      {
+        "input": "6 \n 2 4 -5 3 9 7",
+        "output": true
+      },
+      {
+        "input": "1 \n 1",
+        "output": false
+      },
+      {
+        "input": "4 \n 1 3 5 -100",
+        "output": false
+      },
+      {
+        "input": "4 \n 100 3 5 -100",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that computes the number of collisions in a car race given the number of cars in each direction on a straight road.",
+    "signature": "int car_race_collision(int n)",
+    "example": "Input: 2 | Output: 4",
+    "tests": [
+      {
+        "input": "2",
+        "output": 4
+      },
+      {
+        "input": "3",
+        "output": 9
+      },
+      {
+        "input": "4",
+        "output": 16
+      },
+      {
+        "input": "8",
+        "output": 64
+      },
+      {
+        "input": "10",
+        "output": 100
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns an array with elements incremented by 1.",
+    "signature": "int[] incr_list(int l_len, int[] l)",
+    "example": "Input: 3 \n 1 2 3 | Output: 2 3 4",
+    "tests": [
+      {
+        "input": "0",
+        "output": []
+      },
+      {
+        "input": "3 \n 3 2 1",
+        "output": [
+          4,
+          3,
+          2
+        ]
+      },
+      {
+        "input": "9 \n 5 2 5 2 3 3 9 0 123",
+        "output": [
+          6,
+          3,
+          6,
+          3,
+          4,
+          4,
+          10,
+          1,
+          124
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if in a given array of integers, there are two distinct elements that sum to zero.",
+    "signature": "bool pairs_sum_to_zero(int l_len, int[] l)",
+    "example": "Input: 4 \n 1 3 5 0 | Output: false",
+    "tests": [
+      {
+        "input": "4 \n 1 3 5 0",
+        "output": false
+      },
+      {
+        "input": "4 \n 1 3 -2 1",
+        "output": false
+      },
+      {
+        "input": "4 \n 1 2 3 7",
+        "output": false
+      },
+      {
+        "input": "6 \n 2 4 -5 3 5 7",
+        "output": true
+      },
+      {
+        "input": "1 \n 1",
+        "output": false
+      },
+      {
+        "input": "6 \n -3 9 -1 3 2 30",
+        "output": true
+      },
+      {
+        "input": "6 \n -3 9 -1 3 2 31",
+        "output": true
+      },
+      {
+        "input": "6 \n -3 9 -1 4 2 30",
+        "output": false
+      },
+      {
+        "input": "6 \n -3 9 -1 4 2 31",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that changes the numerical base of an integer to a given base and returns the string representation.",
+    "signature": "string change_base(int x, int base)",
+    "example": "Input: 8 \n 3 | Output: 22",
+    "tests": [
+      {
+        "input": "8 \n 3",
+        "output": "22"
+      },
+      {
+        "input": "9 \n 3",
+        "output": "100"
+      },
+      {
+        "input": "234 \n 2",
+        "output": "11101010"
+      },
+      {
+        "input": "16 \n 2",
+        "output": "10000"
+      },
+      {
+        "input": "8 \n 2",
+        "output": "1000"
+      },
+      {
+        "input": "7 \n 2",
+        "output": "111"
+      },
+      {
+        "input": "2 \n 3",
+        "output": "2"
+      },
+      {
+        "input": "3 \n 4",
+        "output": "3"
+      },
+      {
+        "input": "4 \n 5",
+        "output": "4"
+      },
+      {
+        "input": "5 \n 6",
+        "output": "5"
+      },
+      {
+        "input": "6 \n 7",
+        "output": "6"
+      },
+      {
+        "input": "7 \n 8",
+        "output": "7"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that computes the area of a triangle given the base length and height.",
+    "signature": "float triangle_area(float a, float h)",
+    "example": "Input: 5 \n 3 | Output: 7.5",
+    "tests": [
+      {
+        "input": "5 \n 3",
+        "output": 7.5
+      },
+      {
+        "input": "2 \n 2",
+        "output": 2.0
+      },
+      {
+        "input": "10 \n 8",
+        "output": 40.0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that efficiently computes the n-th element of the Fib4 sequence without using recursion.",
+    "signature": "int fib4(int n)",
+    "example": "Input: 5 | Output: 4",
+    "tests": [
+      {
+        "input": "5",
+        "output": 4
+      },
+      {
+        "input": "8",
+        "output": 28
+      },
+      {
+        "input": "10",
+        "output": 104
+      },
+      {
+        "input": "12",
+        "output": 386
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the median of an array of numbers.",
+    "signature": "float median(int l_len, float[] l)",
+    "example": "Input: 5 \n 3 1 2 4 5 | Output: 3",
+    "tests": [
+      {
+        "input": "5 \n 3 1 2 4 5",
+        "output": 3
+      },
+      {
+        "input": "6 \n -10 4 6 1000 10 20",
+        "output": 8.0
+      },
+      {
+        "input": "1 \n 5",
+        "output": 5
+      },
+      {
+        "input": "2 \n 6 5",
+        "output": 5.5
+      },
+      {
+        "input": "7 \n 8 1 3 9 9 2 7",
+        "output": 7
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if a given string is a palindrome.",
+    "signature": "bool is_palindrome(string text)",
+    "example": "Input: aba | Output: true",
+    "tests": [
+      {
+        "input": "",
+        "output": true
+      },
+      {
+        "input": "aba",
+        "output": true
+      },
+      {
+        "input": "aaaaa",
+        "output": true
+      },
+      {
+        "input": "zbcd",
+        "output": false
+      },
+      {
+        "input": "xywyx",
+        "output": true
+      },
+      {
+        "input": "xywyz",
+        "output": false
+      },
+      {
+        "input": "xywzx",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that computes 2 raised to the power n modulo p.",
+    "signature": "int modp(int n, int p)",
+    "example": "Input: 3 \n 5 | Output: 3",
+    "tests": [
+      {
+        "input": "3 \n 5",
+        "output": 3
+      },
+      {
+        "input": "1101 \n 101",
+        "output": 2
+      },
+      {
+        "input": "0 \n 101",
+        "output": 1
+      },
+      {
+        "input": "3 \n 11",
+        "output": 8
+      },
+      {
+        "input": "100 \n 101",
+        "output": 1
+      },
+      {
+        "input": "30 \n 5",
+        "output": 4
+      },
+      {
+        "input": "31 \n 5",
+        "output": 3
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes as input a string encoded with the encode_shift function (which shifts every character by 5 in the alphabet) and returns the decoded string.",
+    "signature": "string decode_shift(string s)",
+    "example": "Input: fgh | Output: abc",
+    "tests": [
+      {
+        "input": "fgh",
+        "output": "abc"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a string and returns the string without vowels.",
+    "signature": "string remove_vowels(string text)",
+    "example": "Input: abcdef\nghijklm | Output: bcdf\nghjklm",
+    "tests": [
+      {
+        "input": "",
+        "output": ""
+      },
+      {
+        "input": "abcdef\nghijklm",
+        "output": "bcdf\nghjklm"
+      },
+      {
+        "input": "fedcba",
+        "output": "fdcb"
+      },
+      {
+        "input": "eeeee",
+        "output": ""
+      },
+      {
+        "input": "acBAA",
+        "output": "cB"
+      },
+      {
+        "input": "EcBOO",
+        "output": "cB"
+      },
+      {
+        "input": "ybcd",
+        "output": "ybcd"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns true if all numbers in the given array are below the specified threshold.",
+    "signature": "bool below_threshold(int l_len, int[] l, int t)",
+    "example": "Input: 4\n1 2 4 10\n100 | Output: true",
+    "tests": [
+      {
+        "input": "4\n1 2 4 10\n100",
+        "output": true
+      },
+      {
+        "input": "4\n1 20 4 10\n5",
+        "output": false
+      },
+      {
+        "input": "4\n1 20 4 10\n21",
+        "output": true
+      },
+      {
+        "input": "4\n1 20 4 10\n22",
+        "output": true
+      },
+      {
+        "input": "4\n1 8 4 10\n11",
+        "output": true
+      },
+      {
+        "input": "4\n1 8 4 10\n10",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that adds two numbers.",
+    "signature": "int add(int x, int y)",
+    "example": "Input: 2\n3 | Output: 5",
+    "tests": [
+      {
+        "input": "0\n1",
+        "output": 1
+      },
+      {
+        "input": "1\n0",
+        "output": 1
+      },
+      {
+        "input": "2\n3",
+        "output": 5
+      },
+      {
+        "input": "5\n7",
+        "output": 12
+      },
+      {
+        "input": "7\n5",
+        "output": 12
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if two words have the same characters.",
+    "signature": "bool same_chars(string s0, string s1)",
+    "example": "Input: eabcdzzzz\ndddzzzzzzzddeddabc | Output: true",
+    "tests": [
+      {
+        "input": "eabcdzzzz\ndddzzzzzzzddeddabc",
+        "output": true
+      },
+      {
+        "input": "abcd\ndddddddabc",
+        "output": true
+      },
+      {
+        "input": "dddddddabc\nabcd",
+        "output": true
+      },
+      {
+        "input": "eabcd\ndddddddabc",
+        "output": false
+      },
+      {
+        "input": "abcd\nddddddabce",
+        "output": false
+      },
+      {
+        "input": "eabcdzzzz\ndddzzzzzzzddddabc",
+        "output": false
+      },
+      {
+        "input": "aabb\naaccc",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the n-th Fibonacci number.",
+    "signature": "int fib(int n)",
+    "example": "Input: 10 | Output: 55",
+    "tests": [
+      {
+        "input": "10",
+        "output": 55
+      },
+      {
+        "input": "1",
+        "output": 1
+      },
+      {
+        "input": "8",
+        "output": 21
+      },
+      {
+        "input": "11",
+        "output": 89
+      },
+      {
+        "input": "12",
+        "output": 144
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if in a given string of '<' and '>' every opening bracket has a corresponding closing bracket.",
+    "signature": "bool correct_bracketing(string brackets)",
+    "example": "Input: < | Output: false",
+    "tests": [
+      {
+        "input": "<>",
+        "output": true
+      },
+      {
+        "input": "<<><>>",
+        "output": true
+      },
+      {
+        "input": "<><><<><>><>",
+        "output": true
+      },
+      {
+        "input": "<><><<<><><>><>><<><><<>>>",
+        "output": true
+      },
+      {
+        "input": "<<<><>>>>",
+        "output": false
+      },
+      {
+        "input": "><<>",
+        "output": false
+      },
+      {
+        "input": "<",
+        "output": false
+      },
+      {
+        "input": "<<<<",
+        "output": false
+      },
+      {
+        "input": ">",
+        "output": false
+      },
+      {
+        "input": "<<>",
+        "output": false
+      },
+      {
+        "input": "<><><<><>><>><<>",
+        "output": false
+      },
+      {
+        "input": "<><><<><>><>>><>",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns true if the array elements are monotonically increasing or decreasing.",
+    "signature": "bool monotonic(int l_len, int[] l)",
+    "example": "Input: 4\n1 2 4 20 | Output: true",
+    "tests": [
+      {
+        "input": "4\n1 2 4 10",
+        "output": true
+      },
+      {
+        "input": "4\n1 2 4 20",
+        "output": true
+      },
+      {
+        "input": "4\n1 20 4 10",
+        "output": false
+      },
+      {
+        "input": "4\n4 1 0 -10",
+        "output": true
+      },
+      {
+        "input": "4\n4 1 1 0",
+        "output": true
+      },
+      {
+        "input": "6\n1 2 3 2 5 60",
+        "output": false
+      },
+      {
+        "input": "6\n1 2 3 4 5 60",
+        "output": true
+      },
+      {
+        "input": "4\n9 9 9 9",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns sorted unique common elements for two arrays.",
+    "signature": "int[] common(int l1_len, int[] l1, int l2_len, int[] l2)",
+    "example": "Input: 7\n1 4 3 34 653 2 5\n7\n5 7 1 5 9 653 121 | Output: 1 5 653",
+    "tests": [
+      {
+        "input": "7\n1 4 3 34 653 2 5\n7\n5 7 1 5 9 653 121",
+        "output": [
+          1,
+          5,
+          653
+        ]
+      },
+      {
+        "input": "4\n5 3 2 8\n2\n3 2",
+        "output": [
+          2,
+          3
+        ]
+      },
+      {
+        "input": "4\n4 3 2 8\n3\n3 2 4",
+        "output": [
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "input": "4\n4 3 2 8\n0\n",
+        "output": []
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the largest prime factor of a given number. Assume the number is greater than 1 and is not a prime.",
+    "signature": "int largest_prime_factor(int n)",
+    "example": "Input: 13195 | Output: 29",
+    "tests": [
+      {
+        "input": "15",
+        "output": 5
+      },
+      {
+        "input": "27",
+        "output": 3
+      },
+      {
+        "input": "63",
+        "output": 7
+      },
+      {
+        "input": "330",
+        "output": 11
+      },
+      {
+        "input": "13195",
+        "output": 29
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that sums numbers from 1 to n.",
+    "signature": "int sum_to_n(int n)",
+    "example": "Input: 30 | Output: 465",
+    "tests": [
+      {
+        "input": "1",
+        "output": 1
+      },
+      {
+        "input": "6",
+        "output": 21
+      },
+      {
+        "input": "11",
+        "output": 66
+      },
+      {
+        "input": "30",
+        "output": 465
+      },
+      {
+        "input": "100",
+        "output": 5050
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if every opening bracket in a given string of ( and ) has a corresponding closing bracket.",
+    "signature": "bool correct_bracketing(string brackets)",
+    "example": "Input: ( | Output: false",
+    "tests": [
+      {
+        "input": "()",
+        "output": true
+      },
+      {
+        "input": "(()())",
+        "output": true
+      },
+      {
+        "input": "()()(()())()",
+        "output": true
+      },
+      {
+        "input": "()()((()()())())(()()(()))",
+        "output": true
+      },
+      {
+        "input": "((()())))",
+        "output": false
+      },
+      {
+        "input": ")(()",
+        "output": false
+      },
+      {
+        "input": "(",
+        "output": false
+      },
+      {
+        "input": "(((( ",
+        "output": false
+      },
+      {
+        "input": ")",
+        "output": false
+      },
+      {
+        "input": "(()",
+        "output": false
+      },
+      {
+        "input": "()()(()())())(()",
+        "output": false
+      },
+      {
+        "input": "()()(()())()))()",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that computes the derivative of a polynomial given as an array of coefficients. The polynomial is represented as xs[0] + xs[1]*x + xs[2]*x^2 + ... and the result should be in the same form.",
+    "signature": "int[] derivative(int xs_len, int[] xs)",
+    "example": "Input: 5 \n 3 1 2 4 5 | Output: 1 4 12 20",
+    "tests": [
+      {
+        "input": "5 \n 3 1 2 4 5",
+        "output": [
+          1,
+          4,
+          12,
+          20
+        ]
+      },
+      {
+        "input": "3 \n 1 2 3",
+        "output": [
+          2,
+          6
+        ]
+      },
+      {
+        "input": "3 \n 3 2 1",
+        "output": [
+          2,
+          2
+        ]
+      },
+      {
+        "input": "5 \n 3 2 1 0 4",
+        "output": [
+          2,
+          2,
+          0,
+          16
+        ]
+      },
+      {
+        "input": "1 \n 1",
+        "output": []
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that efficiently computes the n-th element of the FibFib number sequence defined by: fibfib(0)=0, fibfib(1)=0, fibfib(2)=1, and fibfib(n)=fibfib(n-1)+fibfib(n-2)+fibfib(n-3).",
+    "signature": "int fibfib(int n)",
+    "example": "Input: 1 | Output: 0",
+    "tests": [
+      {
+        "input": "2",
+        "output": 1
+      },
+      {
+        "input": "1",
+        "output": 0
+      },
+      {
+        "input": "5",
+        "output": 4
+      },
+      {
+        "input": "8",
+        "output": 24
+      },
+      {
+        "input": "10",
+        "output": 81
+      },
+      {
+        "input": "12",
+        "output": 274
+      },
+      {
+        "input": "14",
+        "output": 927
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that counts the number of vowels in a string. Vowels are 'a', 'e', 'i', 'o', 'u' (case insensitive) and 'y' is considered a vowel only when it is at the end of the word.",
+    "signature": "int vowels_count(string s)",
+    "example": "Input: abcde | Output: 2",
+    "tests": [
+      {
+        "input": "abcde",
+        "output": 2
+      },
+      {
+        "input": "Alone",
+        "output": 3
+      },
+      {
+        "input": "key",
+        "output": 2
+      },
+      {
+        "input": "bye",
+        "output": 1
+      },
+      {
+        "input": "keY",
+        "output": 2
+      },
+      {
+        "input": "bYe",
+        "output": 1
+      },
+      {
+        "input": "ACEDY",
+        "output": 3
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that circularly shifts the digits of an integer x to the right by a given shift amount and returns the result as a string. If shift is greater than the number of digits, return the digits reversed.",
+    "signature": "string circular_shift(int x, int shift)",
+    "example": "Input: 12 \n 1 | Output: 21",
+    "tests": [
+      {
+        "input": "100 \n 2",
+        "output": "001"
+      },
+      {
+        "input": "12 \n 2",
+        "output": "12"
+      },
+      {
+        "input": "97 \n 8",
+        "output": "79"
+      },
+      {
+        "input": "12 \n 1",
+        "output": "21"
+      },
+      {
+        "input": "11 \n 101",
+        "output": "11"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a string and returns the sum of the ASCII codes of its uppercase characters.",
+    "signature": "int digitSum(string s)",
+    "example": "Input: abAB | Output: 131",
+    "tests": [
+      {
+        "input": "",
+        "output": 0
+      },
+      {
+        "input": "abAB",
+        "output": 131
+      },
+      {
+        "input": "abcCd",
+        "output": 67
+      },
+      {
+        "input": "helloE",
+        "output": 69
+      },
+      {
+        "input": "woArBld",
+        "output": 131
+      },
+      {
+        "input": "aAaaaXa",
+        "output": 153
+      },
+      {
+        "input": " How are yOu?",
+        "output": 151
+      },
+      {
+        "input": "You arE Very Smart",
+        "output": 327
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a string representing the number of apples and oranges in a basket and an integer for the total number of fruits, returns the number of mangoes. The number of mangoes is calculated as total fruits minus the sum of apples and oranges.",
+    "signature": "int fruit_distribution(string s, int n)",
+    "example": "Input: 5 apples and 6 oranges \n 19 | Output: 8",
+    "tests": [
+      {
+        "input": "5 apples and 6 oranges \n 19",
+        "output": 8
+      },
+      {
+        "input": "5 apples and 6 oranges \n 21",
+        "output": 10
+      },
+      {
+        "input": "0 apples and 1 oranges \n 3",
+        "output": 2
+      },
+      {
+        "input": "1 apples and 0 oranges \n 3",
+        "output": 2
+      },
+      {
+        "input": "2 apples and 3 oranges \n 100",
+        "output": 95
+      },
+      {
+        "input": "2 apples and 3 oranges \n 5",
+        "output": 0
+      },
+      {
+        "input": "1 apples and 100 oranges \n 120",
+        "output": 19
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that selects and returns a node from an array representing a tree branch. The node to pluck is the one with the smallest even value; if there are multiple, choose the one with the smallest index. Return the plucked node as an array [value, index]. If no even number exists or the array is empty, return an empty array.",
+    "signature": "int[] pluck(int arr_len, int[] arr)",
+    "example": "Input: 3 \n 4 2 3 | Output: 2 1",
+    "tests": [
+      {
+        "input": "3 \n 4 2 3",
+        "output": [
+          2,
+          1
+        ]
+      },
+      {
+        "input": "3 \n 1 2 3",
+        "output": [
+          2,
+          1
+        ]
+      },
+      {
+        "input": "0 \n ",
+        "output": []
+      },
+      {
+        "input": "6 \n 5 0 3 0 4 2",
+        "output": [
+          0,
+          1
+        ]
+      },
+      {
+        "input": "6 \n 1 2 3 0 5 3",
+        "output": [
+          0,
+          3
+        ]
+      },
+      {
+        "input": "5 \n 5 4 8 4 8",
+        "output": [
+          4,
+          1
+        ]
+      },
+      {
+        "input": "4 \n 7 6 7 1",
+        "output": [
+          6,
+          1
+        ]
+      },
+      {
+        "input": "4 \n 7 9 7 1",
+        "output": []
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that finds the greatest integer greater than zero in an array that has a frequency greater than or equal to its own value. If no such integer exists, return -1.",
+    "signature": "int search(int arr_len, int[] arr)",
+    "example": "Input: 6 \n 4 1 2 2 3 1 | Output: 2",
+    "tests": [
+      {
+        "input": "5 \n 5 5 5 5 1",
+        "output": 1
+      },
+      {
+        "input": "6 \n 4 1 4 1 4 4",
+        "output": 4
+      },
+      {
+        "input": "2 \n 3 3",
+        "output": -1
+      },
+      {
+        "input": "8 \n 8 8 8 8 8 8 8 8",
+        "output": 8
+      },
+      {
+        "input": "5 \n 2 3 3 2 2",
+        "output": 2
+      },
+      {
+        "input": "22 \n 2 7 8 8 4 8 7 3 9 6 5 10 4 3 6 7 1 7 4 10 8 1",
+        "output": 1
+      },
+      {
+        "input": "4 \n 3 2 8 2",
+        "output": 2
+      },
+      {
+        "input": "11 \n 6 7 1 8 8 10 5 8 5 3 10",
+        "output": 1
+      },
+      {
+        "input": "7 \n 8 8 3 6 5 6 4",
+        "output": -1
+      },
+      {
+        "input": "25 \n 6 9 6 7 1 4 7 1 8 8 9 8 10 10 8 4 10 4 10 1 2 9 5 7 9",
+        "output": 1
+      },
+      {
+        "input": "5 \n 1 9 10 1 3",
+        "output": 1
+      },
+      {
+        "input": "18 \n 6 10 4 8 2 10 5 1 2 9 5 5 6 3 8 6 4 10",
+        "output": 2
+      },
+      {
+        "input": "12 \n 1 6 10 1 6 9 10 8 6 8 7 3",
+        "output": 1
+      },
+      {
+        "input": "30 \n 9 2 4 1 5 1 5 2 5 7 7 7 3 10 1 5 4 2 8 4 1 9 10 7 10 2 8 10 9 4",
+        "output": 4
+      },
+      {
+        "input": "23 \n 2 6 4 2 8 7 5 6 4 10 4 6 3 7 8 8 3 1 4 2 2 10 7",
+        "output": 4
+      },
+      {
+        "input": "18 \n 9 8 6 10 2 6 10 2 7 8 10 3 8 2 6 2 3 1",
+        "output": 2
+      },
+      {
+        "input": "21 \n 5 5 3 9 5 6 3 2 8 5 6 10 10 6 8 4 10 7 7 10 8",
+        "output": -1
+      },
+      {
+        "input": "1 \n 10",
+        "output": -1
+      },
+      {
+        "input": "13 \n 9 7 7 2 4 7 2 10 9 7 5 7 2",
+        "output": 2
+      },
+      {
+        "input": "11 \n 5 4 10 2 1 1 10 3 6 1 8",
+        "output": 1
+      },
+      {
+        "input": "22 \n 7 9 9 9 3 4 1 5 9 1 2 1 1 10 7 5 6 7 6 7 7 6",
+        "output": 1
+      },
+      {
+        "input": "5 \n 3 10 10 9 2",
+        "output": -1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that given an array of integers, returns an array in strange order, where strange sorting means starting with the minimum value, then the maximum of the remaining integers, then minimum and so on.",
+    "signature": "int[] strange_sort_list(int lst_len, int[] lst)",
+    "example": "Input: 4 \n 1 2 3 4 | Output: 1 4 2 3",
+    "tests": [
+      {
+        "input": "4 \n 1 2 3 4",
+        "output": [
+          1,
+          4,
+          2,
+          3
+        ]
+      },
+      {
+        "input": "5 \n 5 6 7 8 9",
+        "output": [
+          5,
+          9,
+          6,
+          8,
+          7
+        ]
+      },
+      {
+        "input": "5 \n 1 2 3 4 5",
+        "output": [
+          1,
+          5,
+          2,
+          4,
+          3
+        ]
+      },
+      {
+        "input": "6 \n 5 6 7 8 9 1",
+        "output": [
+          1,
+          9,
+          5,
+          8,
+          6,
+          7
+        ]
+      },
+      {
+        "input": "4 \n 5 5 5 5",
+        "output": [
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      {
+        "input": "0 \n ",
+        "output": []
+      },
+      {
+        "input": "8 \n 1 2 3 4 5 6 7 8",
+        "output": [
+          1,
+          8,
+          2,
+          7,
+          3,
+          6,
+          4,
+          5
+        ]
+      },
+      {
+        "input": "8 \n 0 2 2 2 5 5 -5 -5",
+        "output": [
+          -5,
+          5,
+          -5,
+          5,
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "input": "1 \n 111111",
+        "output": [
+          111111
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that given the lengths of the three sides of a triangle, returns the area rounded to 2 decimal points if the triangle is valid, otherwise returns -1.",
+    "signature": "float triangle_area(float a, float b, float c)",
+    "example": "Input: 3 \n 4 \n 5 | Output: 6.00",
+    "tests": [
+      {
+        "input": "3 \n 4 \n 5",
+        "output": 6.0
+      },
+      {
+        "input": "1 \n 2 \n 10",
+        "output": -1
+      },
+      {
+        "input": "4 \n 8 \n 5",
+        "output": 8.18
+      },
+      {
+        "input": "2 \n 2 \n 2",
+        "output": 1.73
+      },
+      {
+        "input": "1 \n 2 \n 3",
+        "output": -1
+      },
+      {
+        "input": "10 \n 5 \n 7",
+        "output": 16.25
+      },
+      {
+        "input": "2 \n 6 \n 3",
+        "output": -1
+      },
+      {
+        "input": "1 \n 1 \n 1",
+        "output": 0.43
+      },
+      {
+        "input": "2 \n 2 \n 10",
+        "output": -1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns true if the given array of integers is balanced (palindromic) and its sum is less than or equal to the given maximum weight, and false otherwise.",
+    "signature": "bool will_it_fly(int q_len, int[] q, int w)",
+    "example": "Input: 3 \n 3 2 3 \n 9 | Output: true",
+    "tests": [
+      {
+        "input": "3 \n 3 2 3 \n 9",
+        "output": true
+      },
+      {
+        "input": "2 \n 1 2 \n 5",
+        "output": false
+      },
+      {
+        "input": "1 \n 3 \n 5",
+        "output": true
+      },
+      {
+        "input": "3 \n 3 2 3 \n 1",
+        "output": false
+      },
+      {
+        "input": "3 \n 1 2 3 \n 6",
+        "output": false
+      },
+      {
+        "input": "1 \n 5 \n 5",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that given an array of integers, finds the minimum number of elements that need to be changed to make the array palindromic.",
+    "signature": "int smallest_change(int arr_len, int[] arr)",
+    "example": "Input: 8 \n 1 2 3 5 4 7 9 6 | Output: 4",
+    "tests": [
+      {
+        "input": "8 \n 1 2 3 5 4 7 9 6",
+        "output": 4
+      },
+      {
+        "input": "7 \n 1 2 3 4 3 2 2",
+        "output": 1
+      },
+      {
+        "input": "3 \n 1 4 2",
+        "output": 1
+      },
+      {
+        "input": "4 \n 1 4 4 2",
+        "output": 1
+      },
+      {
+        "input": "5 \n 1 2 3 2 1",
+        "output": 0
+      },
+      {
+        "input": "4 \n 3 1 1 3",
+        "output": 0
+      },
+      {
+        "input": "1 \n 1",
+        "output": 0
+      },
+      {
+        "input": "2 \n 0 1",
+        "output": 1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that accepts two arrays of strings and returns the array that has a total number of characters less than the other. If they have the same total number of characters, return the first array. If one of the arrays is empty, return an empty array.",
+    "signature": "string[] total_match(int lst1_len, string[] lst1, int lst2_len, string[] lst2)",
+    "example": "Input: 2 \n hi admin \n 2 \n hI Hi | Output: [\"hI\", \"Hi\"]",
+    "tests": [
+      {
+        "input": "0 \n  \n 0 \n ",
+        "output": []
+      },
+      {
+        "input": "2 \n hi admin \n 2 \n hi hi",
+        "output": [
+          "hi",
+          "hi"
+        ]
+      },
+      {
+        "input": "2 \n hi admin \n 4 \n hi hi admin project",
+        "output": [
+          "hi",
+          "admin"
+        ]
+      },
+      {
+        "input": "1 \n 4 \n 5 \n 1 2 3 4 5",
+        "output": [
+          "4"
+        ]
+      },
+      {
+        "input": "2 \n hi admin \n 2 \n hI Hi",
+        "output": [
+          "hI",
+          "Hi"
+        ]
+      },
+      {
+        "input": "2 \n hi admin \n 3 \n hI hi hi",
+        "output": [
+          "hI",
+          "hi",
+          "hi"
+        ]
+      },
+      {
+        "input": "2 \n hi admin \n 3 \n hI hi hii",
+        "output": [
+          "hi",
+          "admin"
+        ]
+      },
+      {
+        "input": "0 \n  \n 1 \n this",
+        "output": []
+      },
+      {
+        "input": "1 \n this \n 0 \n ",
+        "output": []
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns true if the given integer is the product of three prime numbers (with the number being less than 100) and false otherwise.",
+    "signature": "bool is_multiply_prime(int a)",
+    "example": "Input: 30 | Output: true",
+    "tests": [
+      {
+        "input": "5",
+        "output": false
+      },
+      {
+        "input": "30",
+        "output": true
+      },
+      {
+        "input": "8",
+        "output": true
+      },
+      {
+        "input": "10",
+        "output": false
+      },
+      {
+        "input": "125",
+        "output": true
+      },
+      {
+        "input": "105",
+        "output": true
+      },
+      {
+        "input": "126",
+        "output": false
+      },
+      {
+        "input": "729",
+        "output": false
+      },
+      {
+        "input": "891",
+        "output": false
+      },
+      {
+        "input": "1001",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns true if a given integer x is a simple power of n and false otherwise.",
+    "signature": "bool is_simple_power(int x, int n)",
+    "example": "Input: 8 \n 2 | Output: true",
+    "tests": [
+      {
+        "input": "16 \n 2",
+        "output": true
+      },
+      {
+        "input": "143214 \n 16",
+        "output": false
+      },
+      {
+        "input": "4 \n 2",
+        "output": true
+      },
+      {
+        "input": "9 \n 3",
+        "output": true
+      },
+      {
+        "input": "16 \n 4",
+        "output": true
+      },
+      {
+        "input": "24 \n 2",
+        "output": false
+      },
+      {
+        "input": "128 \n 4",
+        "output": false
+      },
+      {
+        "input": "12 \n 6",
+        "output": false
+      },
+      {
+        "input": "1 \n 1",
+        "output": true
+      },
+      {
+        "input": "1 \n 12",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an integer and returns true if it is the cube of some integer, and false otherwise.",
+    "signature": "bool iscube(int a)",
+    "example": "Input: 1 | Output: true",
+    "tests": [
+      {
+        "input": "1",
+        "output": true
+      },
+      {
+        "input": "2",
+        "output": false
+      },
+      {
+        "input": "-1",
+        "output": true
+      },
+      {
+        "input": "64",
+        "output": true
+      },
+      {
+        "input": "180",
+        "output": false
+      },
+      {
+        "input": "1000",
+        "output": true
+      },
+      {
+        "input": "0",
+        "output": true
+      },
+      {
+        "input": "1729",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that receives a hexadecimal string and counts the number of hexadecimal digits that are prime, considering the digits: 2, 3, 5, 7, B, D.",
+    "signature": "int hex_key(string num)",
+    "example": "Input: AB | Output: 1",
+    "tests": [
+      {
+        "input": "AB",
+        "output": 1
+      },
+      {
+        "input": "1077E",
+        "output": 2
+      },
+      {
+        "input": "ABED1A33",
+        "output": 4
+      },
+      {
+        "input": "2020",
+        "output": 2
+      },
+      {
+        "input": "123456789ABCDEF0",
+        "output": 6
+      },
+      {
+        "input": "112233445566778899AABBCCDDEEFF00",
+        "output": 12
+      },
+      {
+        "input": "",
+        "output": 0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that converts a decimal number to its binary representation with a prefix and suffix of 'db'.",
+    "signature": "string decimal_to_binary(int decimal)",
+    "example": "Input: 15 | Output: db1111db",
+    "tests": [
+      {
+        "input": "0",
+        "output": "db0db"
+      },
+      {
+        "input": "32",
+        "output": "db100000db"
+      },
+      {
+        "input": "103",
+        "output": "db1100111db"
+      },
+      {
+        "input": "15",
+        "output": "db1111db"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if a given string is happy or not (a string is happy if its length is at least 3 and every 3 consecutive letters are distinct).",
+    "signature": "bool is_happy(string s)",
+    "example": "Input: a | Output: false",
+    "tests": [
+      {
+        "input": "a",
+        "output": false
+      },
+      {
+        "input": "aa",
+        "output": false
+      },
+      {
+        "input": "abcd",
+        "output": true
+      },
+      {
+        "input": "aabb",
+        "output": false
+      },
+      {
+        "input": "adb",
+        "output": true
+      },
+      {
+        "input": "xyy",
+        "output": false
+      },
+      {
+        "input": "iopaxpoi",
+        "output": true
+      },
+      {
+        "input": "iopaxioi",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that converts an array of GPA values to an array of letter grades based on a predefined grading table.",
+    "signature": "string[] numerical_letter_grade(int grades_len, float[] grades)",
+    "example": "Input: 5 \n 4.0 3.0 1.7 2.0 3.5 | Output: A+ B C- C A-",
+    "tests": [
+      {
+        "input": "5 \n 4.0 3.0 1.7 2.0 3.5",
+        "output": [
+          "A+",
+          "B",
+          "C-",
+          "C",
+          "A-"
+        ]
+      },
+      {
+        "input": "1 \n 1.2",
+        "output": [
+          "D+"
+        ]
+      },
+      {
+        "input": "1 \n 0.5",
+        "output": [
+          "D-"
+        ]
+      },
+      {
+        "input": "1 \n 0.0",
+        "output": [
+          "E"
+        ]
+      },
+      {
+        "input": "5 \n 1.0 0.3 1.5 2.8 3.3",
+        "output": [
+          "D",
+          "D-",
+          "C-",
+          "B",
+          "B+"
+        ]
+      },
+      {
+        "input": "2 \n 0.0 0.7",
+        "output": [
+          "E",
+          "D-"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if the length of a given string is a prime number.",
+    "signature": "bool prime_length(string s)",
+    "example": "Input: Hello | Output: true",
+    "tests": [
+      {
+        "input": "Hello",
+        "output": true
+      },
+      {
+        "input": "abcdcba",
+        "output": true
+      },
+      {
+        "input": "kittens",
+        "output": true
+      },
+      {
+        "input": "orange",
+        "output": false
+      },
+      {
+        "input": "wow",
+        "output": true
+      },
+      {
+        "input": "world",
+        "output": true
+      },
+      {
+        "input": "MadaM",
+        "output": true
+      },
+      {
+        "input": "Wow",
+        "output": true
+      },
+      {
+        "input": "",
+        "output": false
+      },
+      {
+        "input": "HI",
+        "output": true
+      },
+      {
+        "input": "go",
+        "output": true
+      },
+      {
+        "input": "gogo",
+        "output": false
+      },
+      {
+        "input": "aaaaaaaaaaaaaaa",
+        "output": false
+      },
+      {
+        "input": "Madam",
+        "output": true
+      },
+      {
+        "input": "M",
+        "output": false
+      },
+      {
+        "input": "0",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the count of n-digit positive integers that start or end with 1.",
+    "signature": "int starts_one_ends(int n)",
+    "example": "Input: 1 | Output: 1",
+    "tests": [
+      {
+        "input": "1",
+        "output": 1
+      },
+      {
+        "input": "2",
+        "output": 18
+      },
+      {
+        "input": "3",
+        "output": 180
+      },
+      {
+        "input": "4",
+        "output": 1800
+      },
+      {
+        "input": "5",
+        "output": 18000
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that computes the sum of the digits in the binary representation of a given integer N and returns that sum as a binary string.",
+    "signature": "string solve(int N)",
+    "example": "Input: 1000 | Output: 1",
+    "tests": [
+      {
+        "input": "1000",
+        "output": "1"
+      },
+      {
+        "input": "150",
+        "output": "110"
+      },
+      {
+        "input": "147",
+        "output": "1100"
+      },
+      {
+        "input": "333",
+        "output": "1001"
+      },
+      {
+        "input": "963",
+        "output": "10010"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that sums the even elements of an array that are located at odd indices.",
+    "signature": "int add(int lst_len, int[] lst)",
+    "example": "Input: 4 \n 4 2 6 7 | Output: 2",
+    "tests": [
+      {
+        "input": "2 \n 4 88",
+        "output": 88
+      },
+      {
+        "input": "6 \n 4 5 6 7 2 122",
+        "output": 122
+      },
+      {
+        "input": "4 \n 4 0 6 7",
+        "output": 0
+      },
+      {
+        "input": "4 \n 4 4 6 8",
+        "output": 12
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a string, returns an ordered version of it where each word's characters are sorted in ascending order while preserving the order of words and spaces.",
+    "signature": "string anti_shuffle(string s)",
+    "example": "Input: Hi | Output: Hi",
+    "tests": [
+      {
+        "input": "Hi",
+        "output": "Hi"
+      },
+      {
+        "input": "hello",
+        "output": "ehllo"
+      },
+      {
+        "input": "number",
+        "output": "bemnru"
+      },
+      {
+        "input": "abcd",
+        "output": "abcd"
+      },
+      {
+        "input": "Hello World!!!",
+        "output": "Hello !!!Wdlor"
+      },
+      {
+        "input": "",
+        "output": ""
+      },
+      {
+        "input": "Hi. My name is Mister Robot. How are you?",
+        "output": ".Hi My aemn is Meirst .Rboot How aer ?ouy"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a 2-dimensional ragged array of integers and an integer x, returns an array of coordinate tuples (row, column) where x is found. Coordinates must be sorted by row ascending and within each row by column descending.",
+    "signature": "tuple[] get_row(int rows, int[][] lst, int x)",
+    "example": "Input: 3 \n 1 2 3 4 5 6 ; 1 2 3 4 1 6 ; 1 2 3 4 5 1 \n 1 | Output: (0,0) (1,4) (1,0) (2,5) (2,0)",
+    "tests": [
+      {
+        "input": "3 \n 1 2 3 4 5 6 ; 1 2 3 4 1 6 ; 1 2 3 4 5 1 \n 1",
+        "output": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            2,
+            0
+          ]
+        ]
+      },
+      {
+        "input": "6 \n 1 2 3 4 5 6 ; 1 2 3 4 5 6 ; 1 2 3 4 5 6 ; 1 2 3 4 5 6 ; 1 2 3 4 5 6 ; 1 2 3 4 5 6 \n 2",
+        "output": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      },
+      {
+        "input": "7 \n 1 2 3 4 5 6 ; 1 2 3 4 5 6 ; 1 1 3 4 5 6 ; 1 2 1 4 5 6 ; 1 2 3 1 5 6 ; 1 2 3 4 1 6 ; 1 2 3 4 5 1 \n 1",
+        "output": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            5
+          ],
+          [
+            6,
+            0
+          ]
+        ]
+      },
+      {
+        "input": "0 \n \n 1",
+        "output": []
+      },
+      {
+        "input": "1 \n 1 \n 2",
+        "output": []
+      },
+      {
+        "input": "3 \n  ; 1 ; 1 2 3 \n 3",
+        "output": [
+          [
+            2,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an array of non-negative integers, returns a sorted copy of the array. Sort in ascending order if the sum of the first and last elements is odd, otherwise sort in descending order.",
+    "signature": "int[] sort_array(int array_len, int[] array)",
+    "example": "Input: 6 \n 2 4 3 0 1 5 | Output: 0 1 2 3 4 5",
+    "tests": [
+      {
+        "input": "0 \n",
+        "output": []
+      },
+      {
+        "input": "1 \n 5",
+        "output": [
+          5
+        ]
+      },
+      {
+        "input": "6 \n 2 4 3 0 1 5",
+        "output": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "input": "7 \n 2 4 3 0 1 5 6",
+        "output": [
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          0
+        ]
+      },
+      {
+        "input": "2 \n 2 1",
+        "output": [
+          1,
+          2
+        ]
+      },
+      {
+        "input": "6 \n 15 42 87 32 11 0",
+        "output": [
+          0,
+          11,
+          15,
+          32,
+          42,
+          87
+        ]
+      },
+      {
+        "input": "4 \n 21 14 23 11",
+        "output": [
+          23,
+          21,
+          14,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that encrypts a given string by rotating its letters by 4 positions (i.e., shifting each letter by 4 positions in the ASCII order).",
+    "signature": "string encrypt(string s)",
+    "example": "Input: hi | Output: lm",
+    "tests": [
+      {
+        "input": "hi",
+        "output": "lm"
+      },
+      {
+        "input": "asdfghjkl",
+        "output": "ewhjklnop"
+      },
+      {
+        "input": "gf",
+        "output": "kj"
+      },
+      {
+        "input": "et",
+        "output": "ix"
+      },
+      {
+        "input": "faewfawefaewg",
+        "output": "jeiajeaijeiak"
+      },
+      {
+        "input": "hellomyfriend",
+        "output": "lippsqcjvmirh"
+      },
+      {
+        "input": "dxzdlmnilfuhmilufhlihufnmlimnufhlimnufhfucufh",
+        "output": "hbdhpqrmpjylqmpyjlpmlyjrqpmqryjlpmqryjljygyjl"
+      },
+      {
+        "input": "a",
+        "output": "e"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the 2nd smallest element of the given array of integers. Return None if there is no such element.",
+    "signature": "int next_smallest(int lst_len, int[] lst)",
+    "example": "Input: 5 \n 1 2 3 4 5 | Output: 2",
+    "tests": [
+      {
+        "input": "5 \n 1 2 3 4 5",
+        "output": 2
+      },
+      {
+        "input": "5 \n 5 1 4 3 2",
+        "output": 2
+      },
+      {
+        "input": "0 \n",
+        "output": null
+      },
+      {
+        "input": "2 \n 1 1",
+        "output": null
+      },
+      {
+        "input": "5 \n 1 1 1 1 0",
+        "output": 1
+      },
+      {
+        "input": "4 \n -35 34 12 -45",
+        "output": -35
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that counts the number of boredoms in the given string of words. A boredom is a sentence that starts with the word 'I'. Sentences are delimited by '.', '?' or '!'.",
+    "signature": "int is_bored(string S)",
+    "example": "Input: Hello world | Output: 0",
+    "tests": [
+      {
+        "input": "Hello world",
+        "output": 0
+      },
+      {
+        "input": "Is the sky blue?",
+        "output": 0
+      },
+      {
+        "input": "I love It !",
+        "output": 1
+      },
+      {
+        "input": "bIt",
+        "output": 0
+      },
+      {
+        "input": "I feel good today. I will be productive. will kill It",
+        "output": 2
+      },
+      {
+        "input": "You and I are going for a walk",
+        "output": 0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes 3 numbers and returns true if one of the numbers is equal to the sum of the other two and all numbers are integers, otherwise returns false.",
+    "signature": "bool any_int(float x, float y, float z)",
+    "example": "Input: 2 \n 3 \n 1 | Output: true",
+    "tests": [
+      {
+        "input": "2 \n 3 \n 1",
+        "output": true
+      },
+      {
+        "input": "2.5 \n 2 \n 3",
+        "output": false
+      },
+      {
+        "input": "1.5 \n 5 \n 3.5",
+        "output": false
+      },
+      {
+        "input": "2 \n 6 \n 2",
+        "output": false
+      },
+      {
+        "input": "4 \n 2 \n 2",
+        "output": true
+      },
+      {
+        "input": "2.2 \n 2.2 \n 2.2",
+        "output": false
+      },
+      {
+        "input": "-4 \n 6 \n 2",
+        "output": true
+      },
+      {
+        "input": "2 \n 1 \n 1",
+        "output": true
+      },
+      {
+        "input": "3 \n 4 \n 7",
+        "output": true
+      },
+      {
+        "input": "3.0 \n 4 \n 7",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a message and encodes it by swapping the case of all letters and replacing all vowels with the letter that appears 2 places ahead in the English alphabet. Assume only letters.",
+    "signature": "string encode(string message)",
+    "example": "Input: test | Output: TGST",
+    "tests": [
+      {
+        "input": "TEST",
+        "output": "tgst"
+      },
+      {
+        "input": "Mudasir",
+        "output": "mWDCSKR"
+      },
+      {
+        "input": "YES",
+        "output": "ygs"
+      },
+      {
+        "input": "This is a message",
+        "output": "tHKS KS C MGSSCGG"
+      },
+      {
+        "input": "I DoNt KnOw WhAt tO WrItE",
+        "output": "k dQnT kNqW wHcT Tq wRkTg"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that finds the largest prime number in the given array of integers and returns the sum of its digits.",
+    "signature": "int skjkasdkd(int lst_len, int[] lst)",
+    "example": "Input: 22 \n 0 3 2 1 3 5 7 4 5 5 5 2 181 32 4 32 3 2 32 324 4 3 | Output: 10",
+    "tests": [
+      {
+        "input": "22 \n 0 3 2 1 3 5 7 4 5 5 5 2 181 32 4 32 3 2 32 324 4 3",
+        "output": 10
+      },
+      {
+        "input": "18 \n 1 0 1 8 2 4597 2 1 3 40 1 2 1 2 4 2 5 1",
+        "output": 25
+      },
+      {
+        "input": "16 \n 1 3 1 32 5107 34 83278 109 163 23 2323 32 30 1 9 3",
+        "output": 13
+      },
+      {
+        "input": "14 \n 0 724 32 71 99 32 6 0 5 91 83 0 5 6",
+        "output": 11
+      },
+      {
+        "input": "6 \n 0 81 12 3 1 21",
+        "output": 3
+      },
+      {
+        "input": "6 \n 0 8 1 2 1 7",
+        "output": 7
+      },
+      {
+        "input": "1 \n 8191",
+        "output": 19
+      },
+      {
+        "input": "4 \n 8191 123456 127 7",
+        "output": 19
+      },
+      {
+        "input": "3 \n 127 97 8192",
+        "output": 10
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that given a dictionary returns true if all keys are strings in lower case or all keys are strings in upper case, otherwise returns false. The function should return false if the given dictionary is empty.",
+    "signature": "bool check_dict_case(dict)",
+    "example": "Input: {'a':'apple', 'b':'banana'} | Output: true",
+    "tests": [
+      {
+        "input": {
+          "p": "pineapple",
+          "b": "banana"
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "p": "pineapple",
+          "A": "banana",
+          "B": "banana"
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "p": "pineapple",
+          "5": "banana",
+          "a": "apple"
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "Name": "John",
+          "Age": "36",
+          "City": "Houston"
+        },
+        "output": false
+      },
+      {
+        "input": {
+          "STATE": "NC",
+          "ZIP": "12345"
+        },
+        "output": true
+      },
+      {
+        "input": {
+          "fruit": "Orange",
+          "taste": "Sweet"
+        },
+        "output": true
+      },
+      {
+        "input": {},
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a non-negative integer and returns an array of prime numbers less than the given number.",
+    "signature": "int[] count_up_to(int n)",
+    "example": "Input: 5 | Output: 2 3",
+    "tests": [
+      {
+        "input": "5",
+        "output": [
+          2,
+          3
+        ]
+      },
+      {
+        "input": "6",
+        "output": [
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "input": "7",
+        "output": [
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "input": "10",
+        "output": [
+          2,
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "input": "0",
+        "output": []
+      },
+      {
+        "input": "22",
+        "output": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19
+        ]
+      },
+      {
+        "input": "1",
+        "output": []
+      },
+      {
+        "input": "18",
+        "output": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17
+        ]
+      },
+      {
+        "input": "47",
+        "output": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43
+        ]
+      },
+      {
+        "input": "101",
+        "output": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes two integers and returns the product of their unit digits.",
+    "signature": "int multiply(int a, int b)",
+    "example": "Input: 148 \n 412 | Output: 16",
+    "tests": [
+      {
+        "input": "148 \n 412",
+        "output": 16
+      },
+      {
+        "input": "19 \n 28",
+        "output": 72
+      },
+      {
+        "input": "2020 \n 1851",
+        "output": 0
+      },
+      {
+        "input": "14 \n -15",
+        "output": 20
+      },
+      {
+        "input": "76 \n 67",
+        "output": 42
+      },
+      {
+        "input": "17 \n 27",
+        "output": 49
+      },
+      {
+        "input": "0 \n 1",
+        "output": 0
+      },
+      {
+        "input": "0 \n 0",
+        "output": 0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that given a string counts the number of uppercase vowels in even indices.",
+    "signature": "int count_upper(string s)",
+    "example": "Input: aBCdEf | Output: 1",
+    "tests": [
+      {
+        "input": "aBCdEf",
+        "output": 1
+      },
+      {
+        "input": "abcdefg",
+        "output": 0
+      },
+      {
+        "input": "dBBE",
+        "output": 0
+      },
+      {
+        "input": "B",
+        "output": 0
+      },
+      {
+        "input": "U",
+        "output": 1
+      },
+      {
+        "input": "",
+        "output": 0
+      },
+      {
+        "input": "EEEE",
+        "output": 2
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a string representing a number and returns the closest integer to it. If the number is equidistant from two integers, round it away from zero.",
+    "signature": "int closest_integer(string value)",
+    "example": "Input: 10 | Output: 10",
+    "tests": [
+      {
+        "input": "10",
+        "output": 10
+      },
+      {
+        "input": "14.5",
+        "output": 15
+      },
+      {
+        "input": "-15.5",
+        "output": -16
+      },
+      {
+        "input": "15.3",
+        "output": 15
+      },
+      {
+        "input": "0",
+        "output": 0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a positive integer n, creates a pile (array) of n levels of stones. The first level has n stones and each subsequent level has the next odd number if n is odd or the next even number if n is even.",
+    "signature": "int[] make_a_pile(int n)",
+    "example": "Input: 3 | Output: 3 5 7",
+    "tests": [
+      {
+        "input": "3",
+        "output": [
+          3,
+          5,
+          7
+        ]
+      },
+      {
+        "input": "4",
+        "output": [
+          4,
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "input": "5",
+        "output": [
+          5,
+          7,
+          9,
+          11,
+          13
+        ]
+      },
+      {
+        "input": "6",
+        "output": [
+          6,
+          8,
+          10,
+          12,
+          14,
+          16
+        ]
+      },
+      {
+        "input": "8",
+        "output": [
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a string of words separated by commas or spaces, splits the string into individual words and returns an array of the words.",
+    "signature": "string[] words_string(string s)",
+    "example": "Input: Hi, my name is John | Output: Hi my name is John",
+    "tests": [
+      {
+        "input": "Hi, my name is John",
+        "output": [
+          "Hi",
+          "my",
+          "name",
+          "is",
+          "John"
+        ]
+      },
+      {
+        "input": "One, two, three, four, five, six",
+        "output": [
+          "One",
+          "two",
+          "three",
+          "four",
+          "five",
+          "six"
+        ]
+      },
+      {
+        "input": "Hi, my name",
+        "output": [
+          "Hi",
+          "my",
+          "name"
+        ]
+      },
+      {
+        "input": "One,, two, three, four, five, six,",
+        "output": [
+          "One",
+          "two",
+          "three",
+          "four",
+          "five",
+          "six"
+        ]
+      },
+      {
+        "input": "",
+        "output": []
+      },
+      {
+        "input": "ahmed     , gamal",
+        "output": [
+          "ahmed",
+          "gamal"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes two positive integers x and y and returns the largest even integer within the range [x, y] inclusive. If there is no such even number, return -1.",
+    "signature": "int choose_num(int x, int y)",
+    "example": "Input: 12 \n15 | Output: 14",
+    "tests": [
+      {
+        "input": "12 \n15",
+        "output": 14
+      },
+      {
+        "input": "13 \n12",
+        "output": -1
+      },
+      {
+        "input": "33 \n12354",
+        "output": 12354
+      },
+      {
+        "input": "5234 \n5233",
+        "output": -1
+      },
+      {
+        "input": "6 \n29",
+        "output": 28
+      },
+      {
+        "input": "27 \n10",
+        "output": -1
+      },
+      {
+        "input": "7 \n7",
+        "output": -1
+      },
+      {
+        "input": "546 \n546",
+        "output": 546
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given two positive integers n and m, computes the average of the integers from n to m (inclusive), rounds it to the nearest integer, and converts that number to its binary representation. If n is greater than m, return -1.",
+    "signature": "mixed rounded_avg(int n, int m)",
+    "example": "Input: 1 \n5 | Output: 0b11",
+    "tests": [
+      {
+        "input": "1 \n5",
+        "output": "0b11"
+      },
+      {
+        "input": "7 \n13",
+        "output": "0b1010"
+      },
+      {
+        "input": "964 \n977",
+        "output": "0b1111001010"
+      },
+      {
+        "input": "996 \n997",
+        "output": "0b1111100100"
+      },
+      {
+        "input": "560 \n851",
+        "output": "0b1011000010"
+      },
+      {
+        "input": "185 \n546",
+        "output": "0b101101110"
+      },
+      {
+        "input": "362 \n496",
+        "output": "0b110101101"
+      },
+      {
+        "input": "350 \n902",
+        "output": "0b1001110010"
+      },
+      {
+        "input": "197 \n233",
+        "output": "0b11010111"
+      },
+      {
+        "input": "7 \n5",
+        "output": -1
+      },
+      {
+        "input": "5 \n1",
+        "output": -1
+      },
+      {
+        "input": "5 \n5",
+        "output": "0b101"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an array of positive integers, returns a sorted array (in increasing order) of all elements that do not contain any even digit.",
+    "signature": "int[] unique_digits(int x_len, int[] x)",
+    "example": "Input: 4 \n15 33 1422 1 | Output: 1 15 33",
+    "tests": [
+      {
+        "input": "4 \n15 33 1422 1",
+        "output": [
+          1,
+          15,
+          33
+        ]
+      },
+      {
+        "input": "4 \n152 323 1422 10",
+        "output": []
+      },
+      {
+        "input": "4 \n12345 2033 111 151",
+        "output": [
+          111,
+          151
+        ]
+      },
+      {
+        "input": "3 \n135 103 31",
+        "output": [
+          31,
+          135
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an array of integers, sorts the integers that are between 1 and 9 inclusive, reverses the sorted array, and then replaces each digit with its corresponding name from \"One\", \"Two\", \"Three\", \"Four\", \"Five\", \"Six\", \"Seven\", \"Eight\", \"Nine\". Numbers outside the range 1 to 9 should be ignored.",
+    "signature": "string[] by_length(int arr_len, int[] arr)",
+    "example": "Input: 8 \n2 1 1 4 5 8 2 3 | Output: Eight Five Four Three Two Two One One",
+    "tests": [
+      {
+        "input": "8 \n2 1 1 4 5 8 2 3",
+        "output": [
+          "Eight",
+          "Five",
+          "Four",
+          "Three",
+          "Two",
+          "Two",
+          "One",
+          "One"
+        ]
+      },
+      {
+        "input": "0 \n",
+        "output": []
+      },
+      {
+        "input": "3 \n1 -1 55",
+        "output": [
+          "One"
+        ]
+      },
+      {
+        "input": "4 \n1 -1 3 2",
+        "output": [
+          "Three",
+          "Two",
+          "One"
+        ]
+      },
+      {
+        "input": "3 \n9 4 8",
+        "output": [
+          "Nine",
+          "Eight",
+          "Four"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a positive integer n, returns an array of size n where the value of the element at index i (starting from 1) is the factorial of i if i is even, and the sum of numbers from 1 to i if i is odd.",
+    "signature": "int[] f(int n)",
+    "example": "Input: 5 | Output: 1 2 6 24 15",
+    "tests": [
+      {
+        "input": "5",
+        "output": [
+          1,
+          2,
+          6,
+          24,
+          15
+        ]
+      },
+      {
+        "input": "7",
+        "output": [
+          1,
+          2,
+          6,
+          24,
+          15,
+          720,
+          28
+        ]
+      },
+      {
+        "input": "1",
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": "3",
+        "output": [
+          1,
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a positive integer n, counts the number of even and odd integer palindromes within the range [1, n] inclusive, and returns the result as a pair (even_count, odd_count).",
+    "signature": "tuple even_odd_palindrome(int n)",
+    "example": "Input: 3 | Output: 1 2",
+    "tests": [
+      {
+        "input": "123",
+        "output": [
+          8,
+          13
+        ]
+      },
+      {
+        "input": "12",
+        "output": [
+          4,
+          6
+        ]
+      },
+      {
+        "input": "3",
+        "output": [
+          1,
+          2
+        ]
+      },
+      {
+        "input": "63",
+        "output": [
+          6,
+          8
+        ]
+      },
+      {
+        "input": "25",
+        "output": [
+          5,
+          6
+        ]
+      },
+      {
+        "input": "19",
+        "output": [
+          4,
+          6
+        ]
+      },
+      {
+        "input": "9",
+        "output": [
+          4,
+          5
+        ]
+      },
+      {
+        "input": "1",
+        "output": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an array of integers, returns the count of elements whose sum of digits is greater than 0. For negative numbers, the first digit carries the sign.",
+    "signature": "int count_nums(int arr_len, int[] arr)",
+    "example": "Input: 3 \n-1 11 -11 | Output: 1",
+    "tests": [
+      {
+        "input": "0 \n",
+        "output": 0
+      },
+      {
+        "input": "3 \n-1 -2 0",
+        "output": 0
+      },
+      {
+        "input": "7 \n1 1 2 -2 3 4 5",
+        "output": 6
+      },
+      {
+        "input": "7 \n1 6 9 -6 0 1 5",
+        "output": 5
+      },
+      {
+        "input": "6 \n1 100 98 -7 1 -1",
+        "output": 4
+      },
+      {
+        "input": "6 \n12 23 34 -45 -56 0",
+        "output": 5
+      },
+      {
+        "input": "2 \n0 1",
+        "output": 1
+      },
+      {
+        "input": "1 \n1",
+        "output": 1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an array of unique integers, determines if it is possible to obtain a non-decreasing sorted array by performing any number of right shift operations (cyclic shifts). Return True if possible, otherwise return False. If the array is empty, return True.",
+    "signature": "bool move_one_ball(int arr_len, int[] arr)",
+    "example": "Input: 5 \n3 4 5 1 2 | Output: true",
+    "tests": [
+      {
+        "input": "5 \n3 4 5 1 2",
+        "output": true
+      },
+      {
+        "input": "5 \n3 5 10 1 2",
+        "output": true
+      },
+      {
+        "input": "4 \n4 3 1 2",
+        "output": false
+      },
+      {
+        "input": "5 \n3 5 4 1 2",
+        "output": false
+      },
+      {
+        "input": "0 \n",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes two arrays of numbers and determines whether it is possible to exchange elements between them to make the first array contain only even numbers.",
+    "signature": "string exchange(int lst1_len, int[] lst1, int lst2_len, int[] lst2)",
+    "example": "Input: 4 \n 1 2 3 4 \n 4 \n 1 2 3 4 | Output: YES",
+    "tests": [
+      {
+        "input": "4 \n 1 2 3 4 \n 4 \n 1 2 3 4",
+        "output": "YES"
+      },
+      {
+        "input": "4 \n 1 2 3 4 \n 4 \n 1 5 3 4",
+        "output": "NO"
+      },
+      {
+        "input": "4 \n 1 2 3 4 \n 4 \n 2 1 4 3",
+        "output": "YES"
+      },
+      {
+        "input": "3 \n 5 7 3 \n 3 \n 2 6 4",
+        "output": "YES"
+      },
+      {
+        "input": "3 \n 5 7 3 \n 3 \n 2 6 3",
+        "output": "NO"
+      },
+      {
+        "input": "6 \n 3 2 6 1 8 9 \n 6 \n 3 5 5 1 1 1",
+        "output": "NO"
+      },
+      {
+        "input": "2 \n 100 200 \n 2 \n 200 200",
+        "output": "YES"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a string representing space separated lowercase letters and returns a dictionary of the letter(s) with the highest repetition along with their counts.",
+    "signature": "Dictionary histogram(string test)",
+    "example": "Input: a b c | Output: {'a': 1, 'b': 1, 'c': 1}",
+    "tests": [
+      {
+        "input": "a b b a",
+        "output": {
+          "a": 2,
+          "b": 2
+        }
+      },
+      {
+        "input": "a b c a b",
+        "output": {
+          "a": 2,
+          "b": 2
+        }
+      },
+      {
+        "input": "a b c d g",
+        "output": {
+          "a": 1,
+          "b": 1,
+          "c": 1,
+          "d": 1,
+          "g": 1
+        }
+      },
+      {
+        "input": "r t g",
+        "output": {
+          "r": 1,
+          "t": 1,
+          "g": 1
+        }
+      },
+      {
+        "input": "b b b b a",
+        "output": {
+          "b": 4
+        }
+      },
+      {
+        "input": "r t g",
+        "output": {
+          "r": 1,
+          "t": 1,
+          "g": 1
+        }
+      },
+      {
+        "input": "",
+        "output": {}
+      },
+      {
+        "input": "a",
+        "output": {
+          "a": 1
+        }
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes two strings, deletes all characters in the first string that are equal to any character in the second string, and then checks if the resulting string is a palindrome, returning a tuple of the resulting string and a boolean.",
+    "signature": "tuple reverse_delete(string s, string c)",
+    "example": "Input: abcde \n ae | Output: bcd False",
+    "tests": [
+      {
+        "input": "abcde \n ae",
+        "output": [
+          "bcd",
+          false
+        ]
+      },
+      {
+        "input": "abcdef \n b",
+        "output": [
+          "acdef",
+          false
+        ]
+      },
+      {
+        "input": "abcdedcba \n ab",
+        "output": [
+          "cdedc",
+          true
+        ]
+      },
+      {
+        "input": "dwik \n w",
+        "output": [
+          "dik",
+          false
+        ]
+      },
+      {
+        "input": "a \n a",
+        "output": [
+          "",
+          true
+        ]
+      },
+      {
+        "input": "abcdedcba \n ",
+        "output": [
+          "abcdedcba",
+          true
+        ]
+      },
+      {
+        "input": "abcdedcba \n v",
+        "output": [
+          "abcdedcba",
+          true
+        ]
+      },
+      {
+        "input": "vabba \n v",
+        "output": [
+          "abba",
+          true
+        ]
+      },
+      {
+        "input": "mamma \n mia",
+        "output": [
+          "",
+          true
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an array of strings (each string consisting only of digits) and returns an array where each element is a string describing the number of odd digits in the corresponding input string.",
+    "signature": "string[] odd_count(int lst_len, string[] lst)",
+    "example": "Input: 1 \n 1234567 | Output: the number of odd elements 4n the str4ng 4 of the 4nput.",
+    "tests": [
+      {
+        "input": "1 \n 1234567",
+        "output": [
+          "the number of odd elements 4n the str4ng 4 of the 4nput."
+        ]
+      },
+      {
+        "input": "2 \n 3 11111111",
+        "output": [
+          "the number of odd elements 1n the str1ng 1 of the 1nput.",
+          "the number of odd elements 8n the str8ng 8 of the 8nput."
+        ]
+      },
+      {
+        "input": "3 \n 271 137 314",
+        "output": [
+          "the number of odd elements 2n the str2ng 2 of the 2nput.",
+          "the number of odd elements 3n the str3ng 3 of the 3nput.",
+          "the number of odd elements 2n the str2ng 2 of the 2nput."
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an array of integers and finds the minimum sum of any non-empty sub-array.",
+    "signature": "int minSubArraySum(int nums_len, int[] nums)",
+    "example": "Input: 6 \n 2 3 4 1 2 4 | Output: 1",
+    "tests": [
+      {
+        "input": "6 \n 2 3 4 1 2 4",
+        "output": 1
+      },
+      {
+        "input": "3 \n -1 -2 -3",
+        "output": -6
+      },
+      {
+        "input": "5 \n -1 -2 -3 2 -10",
+        "output": -14
+      },
+      {
+        "input": "1 \n -9999999999999999",
+        "output": -9999999999999999
+      },
+      {
+        "input": "4 \n 0 10 20 1000000",
+        "output": 0
+      },
+      {
+        "input": "5 \n -1 -2 -3 10 -5",
+        "output": -6
+      },
+      {
+        "input": "6 \n 100 -1 -2 -3 10 -5",
+        "output": -6
+      },
+      {
+        "input": "6 \n 10 11 13 8 3 4",
+        "output": 3
+      },
+      {
+        "input": "6 \n 100 -33 32 -1 0 -2",
+        "output": -33
+      },
+      {
+        "input": "1 \n -10",
+        "output": -10
+      },
+      {
+        "input": "1 \n 7",
+        "output": 7
+      },
+      {
+        "input": "2 \n 1 -1",
+        "output": -1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a two-dimensional array representing a grid of wells and a bucket capacity, and returns the number of times the buckets need to be lowered to empty the wells.",
+    "signature": "int max_fill(int grid_rows, int grid_cols, int[][] grid, int capacity)",
+    "example": "Input: 3 \n 4 \n 0 0 1 0 0 1 0 0 1 1 1 1 \n 1 | Output: 6",
+    "tests": [
+      {
+        "input": "3 \n 4 \n 0 0 1 0 0 1 0 0 1 1 1 1 \n 1",
+        "output": 6
+      },
+      {
+        "input": "4 \n 4 \n 0 0 1 1 0 0 0 0 1 1 1 1 0 1 1 1 \n 2",
+        "output": 5
+      },
+      {
+        "input": "2 \n 3 \n 0 0 0 0 0 0 \n 5",
+        "output": 0
+      },
+      {
+        "input": "2 \n 4 \n 1 1 1 1 1 1 1 1 \n 2",
+        "output": 4
+      },
+      {
+        "input": "2 \n 4 \n 1 1 1 1 1 1 1 1 \n 9",
+        "output": 2
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an array of integers and sorts them according to the number of ones in their binary representation in ascending order; for numbers with the same number of ones, sort based on the decimal value.",
+    "signature": "int[] sort_array(int arr_len, int[] arr)",
+    "example": "Input: 5 \n 1 5 2 3 4 | Output: 1 2 3 4 5",
+    "tests": [
+      {
+        "input": "5 \n 1 5 2 3 4",
+        "output": [
+          1,
+          2,
+          4,
+          3,
+          5
+        ]
+      },
+      {
+        "input": "5 \n -2 -3 -4 -5 -6",
+        "output": [
+          -4,
+          -2,
+          -6,
+          -5,
+          -3
+        ]
+      },
+      {
+        "input": "5 \n 1 0 2 3 4",
+        "output": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ]
+      },
+      {
+        "input": "0 \n",
+        "output": []
+      },
+      {
+        "input": "11 \n 2 5 77 4 5 3 5 7 2 3 4",
+        "output": [
+          2,
+          2,
+          4,
+          4,
+          3,
+          3,
+          5,
+          5,
+          5,
+          7,
+          77
+        ]
+      },
+      {
+        "input": "6 \n 3 6 44 12 32 5",
+        "output": [
+          32,
+          3,
+          5,
+          6,
+          12,
+          44
+        ]
+      },
+      {
+        "input": "5 \n 2 4 8 16 32",
+        "output": [
+          2,
+          4,
+          8,
+          16,
+          32
+        ]
+      },
+      {
+        "input": "5 \n 2 4 8 16 32",
+        "output": [
+          2,
+          4,
+          8,
+          16,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a string and a natural number and returns an array of all words from the string that contain exactly n consonants, preserving their original order.",
+    "signature": "string[] select_words(string s, int n)",
+    "example": "Input: Mary had a little lamb \n 4 | Output: little",
+    "tests": [
+      {
+        "input": "Mary had a little lamb \n 4",
+        "output": [
+          "little"
+        ]
+      },
+      {
+        "input": "Mary had a little lamb \n 3",
+        "output": [
+          "Mary",
+          "lamb"
+        ]
+      },
+      {
+        "input": "simple white space \n 2",
+        "output": []
+      },
+      {
+        "input": "Hello world \n 4",
+        "output": [
+          "world"
+        ]
+      },
+      {
+        "input": "Uncle sam \n 3",
+        "output": [
+          "Uncle"
+        ]
+      },
+      {
+        "input": " \n 4",
+        "output": []
+      },
+      {
+        "input": "a b c d e f \n 1",
+        "output": [
+          "b",
+          "c",
+          "d",
+          "f"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a word and finds the closest vowel that stands between two consonants from the right side of the word, excluding vowels at the beginning and ending; return an empty string if no such vowel exists.",
+    "signature": "string get_closest_vowel(string word)",
+    "example": "Input: yogurt | Output: u",
+    "tests": [
+      {
+        "input": "yogurt",
+        "output": "u"
+      },
+      {
+        "input": "full",
+        "output": "u"
+      },
+      {
+        "input": "easy",
+        "output": ""
+      },
+      {
+        "input": "eAsy",
+        "output": ""
+      },
+      {
+        "input": "ali",
+        "output": ""
+      },
+      {
+        "input": "bad",
+        "output": "a"
+      },
+      {
+        "input": "most",
+        "output": "o"
+      },
+      {
+        "input": "ab",
+        "output": ""
+      },
+      {
+        "input": "ba",
+        "output": ""
+      },
+      {
+        "input": "quick",
+        "output": ""
+      },
+      {
+        "input": "anime",
+        "output": "i"
+      },
+      {
+        "input": "Asia",
+        "output": ""
+      },
+      {
+        "input": "Above",
+        "output": "o"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an array of two strings, each consisting only of parentheses, and determines whether it is possible to concatenate the two strings in some order to form a balanced parentheses string.",
+    "signature": "string match_parens(int lst_len, string[] lst)",
+    "example": "Input: 2 \n ()( ) | Output: Yes",
+    "tests": [
+      {
+        "input": "2 \n ()( )",
+        "output": "Yes"
+      },
+      {
+        "input": "2 \n ) )",
+        "output": "No"
+      },
+      {
+        "input": "2 \n (()(()) ())())",
+        "output": "No"
+      },
+      {
+        "input": "2 \n )()) (()()(",
+        "output": "Yes"
+      },
+      {
+        "input": "2 \n (())) (()())((",
+        "output": "Yes"
+      },
+      {
+        "input": "2 \n () ())",
+        "output": "No"
+      },
+      {
+        "input": "2 \n (()(  ()))()",
+        "output": "Yes"
+      },
+      {
+        "input": "2 \n (((( ((())",
+        "output": "No"
+      },
+      {
+        "input": "2 \n )(() (()(",
+        "output": "No"
+      },
+      {
+        "input": "2 \n )( )(",
+        "output": "No"
+      },
+      {
+        "input": "2 \n ( )",
+        "output": "Yes"
+      },
+      {
+        "input": "2 \n ) (",
+        "output": "Yes"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns a sorted array of length k with the maximum k numbers in the given array of integers.",
+    "signature": "int[] maximum(int arr_len, int[] arr, int k)",
+    "example": "Input: 3 \n -3 -4 5 \n 3 | Output: -4 -3 5",
+    "tests": [
+      {
+        "input": "3 \n -3 -4 5 \n 3",
+        "output": [
+          -4,
+          -3,
+          5
+        ]
+      },
+      {
+        "input": "3 \n 4 -4 4 \n 2",
+        "output": [
+          4,
+          4
+        ]
+      },
+      {
+        "input": "7 \n -3 2 1 2 -1 -2 1 \n 1",
+        "output": [
+          2
+        ]
+      },
+      {
+        "input": "7 \n 123 -123 20 0 1 2 -3 \n 3",
+        "output": [
+          2,
+          20,
+          123
+        ]
+      },
+      {
+        "input": "6 \n -123 20 0 1 2 -3 \n 4",
+        "output": [
+          0,
+          1,
+          2,
+          20
+        ]
+      },
+      {
+        "input": "7 \n 5 15 0 3 -13 -8 0 \n 7",
+        "output": [
+          -13,
+          -8,
+          0,
+          0,
+          3,
+          5,
+          15
+        ]
+      },
+      {
+        "input": "6 \n -1 0 2 5 3 -10 \n 2",
+        "output": [
+          3,
+          5
+        ]
+      },
+      {
+        "input": "4 \n 1 0 5 -7 \n 1",
+        "output": [
+          5
+        ]
+      },
+      {
+        "input": "2 \n 4 -4 \n 2",
+        "output": [
+          -4,
+          4
+        ]
+      },
+      {
+        "input": "2 \n -10 10 \n 2",
+        "output": [
+          -10,
+          10
+        ]
+      },
+      {
+        "input": "7 \n 1 2 3 -23 243 -400 0 \n 0",
+        "output": []
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the sum of all odd elements at even positions in the given non-empty array of integers.",
+    "signature": "int solution(int lst_len, int[] lst)",
+    "example": "Input: 4 \n 5 8 7 1 | Output: 12",
+    "tests": [
+      {
+        "input": "4 \n 5 8 7 1",
+        "output": 12
+      },
+      {
+        "input": "5 \n 3 3 3 3 3",
+        "output": 9
+      },
+      {
+        "input": "4 \n 30 13 24 321",
+        "output": 0
+      },
+      {
+        "input": "2 \n 5 9",
+        "output": 5
+      },
+      {
+        "input": "3 \n 2 4 8",
+        "output": 0
+      },
+      {
+        "input": "4 \n 30 13 23 32",
+        "output": 23
+      },
+      {
+        "input": "4 \n 3 13 2 9",
+        "output": 3
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the sum of elements with at most two digits from the first k elements in the given non-empty array of integers.",
+    "signature": "int add_elements(int arr_len, int[] arr, int k)",
+    "example": "Input: 9 \n 111 21 3 4000 5 6 7 8 9 \n 4 | Output: 24",
+    "tests": [
+      {
+        "input": "9 \n 1 -2 -3 41 57 76 87 88 99 \n 3",
+        "output": -4
+      },
+      {
+        "input": "6 \n 111 121 3 4000 5 6 \n 2",
+        "output": 0
+      },
+      {
+        "input": "9 \n 11 21 3 90 5 6 7 8 9 \n 4",
+        "output": 125
+      },
+      {
+        "input": "9 \n 111 21 3 4000 5 6 7 8 9 \n 4",
+        "output": 24
+      },
+      {
+        "input": "1 \n 1 \n 1",
+        "output": 1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns a sorted array containing the odd numbers present in the Collatz sequence of a given positive integer.",
+    "signature": "int[] get_odd_collatz(int n)",
+    "example": "Input: 5 | Output: 1 5",
+    "tests": [
+      {
+        "input": "14",
+        "output": [
+          1,
+          5,
+          7,
+          11,
+          13,
+          17
+        ]
+      },
+      {
+        "input": "5",
+        "output": [
+          1,
+          5
+        ]
+      },
+      {
+        "input": "12",
+        "output": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "input": "1",
+        "output": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that validates a given date string in the format mm-dd-yyyy and returns true if the date is valid, otherwise false.",
+    "signature": "bool valid_date(string date)",
+    "example": "Input: 03-11-2000 | Output: true",
+    "tests": [
+      {
+        "input": "03-11-2000",
+        "output": true
+      },
+      {
+        "input": "15-01-2012",
+        "output": false
+      },
+      {
+        "input": "04-0-2040",
+        "output": false
+      },
+      {
+        "input": "06-04-2020",
+        "output": true
+      },
+      {
+        "input": "01-01-2007",
+        "output": true
+      },
+      {
+        "input": "03-32-2011",
+        "output": false
+      },
+      {
+        "input": "",
+        "output": false
+      },
+      {
+        "input": "04-31-3000",
+        "output": false
+      },
+      {
+        "input": "06-06-2005",
+        "output": true
+      },
+      {
+        "input": "21-31-2000",
+        "output": false
+      },
+      {
+        "input": "04-12-2003",
+        "output": true
+      },
+      {
+        "input": "04122003",
+        "output": false
+      },
+      {
+        "input": "20030412",
+        "output": false
+      },
+      {
+        "input": "2003-04",
+        "output": false
+      },
+      {
+        "input": "2003-04-12",
+        "output": false
+      },
+      {
+        "input": "04-2003",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a string of words, splits it based on whitespace; if no whitespace exists, split on commas; if no commas exist, return the count of lower-case letters with an odd order in the alphabet.",
+    "signature": "any split_words(string txt)",
+    "example": "Input: Hello world! | Output: Hello world!",
+    "tests": [
+      {
+        "input": "Hello world!",
+        "output": [
+          "Hello",
+          "world!"
+        ]
+      },
+      {
+        "input": "Hello,world!",
+        "output": [
+          "Hello",
+          "world!"
+        ]
+      },
+      {
+        "input": "Hello world,!",
+        "output": [
+          "Hello",
+          "world,!"
+        ]
+      },
+      {
+        "input": "Hello,Hello,world !",
+        "output": [
+          "Hello,Hello,world",
+          "!"
+        ]
+      },
+      {
+        "input": "abcdef",
+        "output": 3
+      },
+      {
+        "input": "aaabb",
+        "output": 2
+      },
+      {
+        "input": "aaaBb",
+        "output": 1
+      },
+      {
+        "input": "",
+        "output": 0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if a given array of integers is sorted in ascending order and returns false if any number appears more than once, otherwise true.",
+    "signature": "bool is_sorted(int lst_len, int[] lst)",
+    "example": "Input: 5 \n 1 2 3 4 5 | Output: true",
+    "tests": [
+      {
+        "input": "1 \n 5",
+        "output": true
+      },
+      {
+        "input": "5 \n 1 2 3 4 5",
+        "output": true
+      },
+      {
+        "input": "5 \n 1 3 2 4 5",
+        "output": false
+      },
+      {
+        "input": "6 \n 1 2 3 4 5 6",
+        "output": true
+      },
+      {
+        "input": "7 \n 1 2 3 4 5 6 7",
+        "output": true
+      },
+      {
+        "input": "7 \n 1 3 2 4 5 6 7",
+        "output": false
+      },
+      {
+        "input": "0 \n",
+        "output": true
+      },
+      {
+        "input": "1 \n 1",
+        "output": true
+      },
+      {
+        "input": "3 \n 3 2 1",
+        "output": false
+      },
+      {
+        "input": "6 \n 1 2 2 2 3 4",
+        "output": false
+      },
+      {
+        "input": "6 \n 1 2 3 3 3 4",
+        "output": false
+      },
+      {
+        "input": "6 \n 1 2 2 3 3 4",
+        "output": true
+      },
+      {
+        "input": "4 \n 1 2 3 4",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given two closed intervals represented by a pair of integers each, determines whether the length of their intersection is a prime number. Return \"YES\" if prime, otherwise \"NO\". If the intervals do not intersect, return \"NO\".",
+    "signature": "string intersection(int interval1_start, int interval1_end, int interval2_start, int interval2_end)",
+    "example": "Input: 1 2 \n 2 3 | Output: NO",
+    "tests": [
+      {
+        "input": "1 2 \n 2 3",
+        "output": "NO"
+      },
+      {
+        "input": "-1 1 \n 0 4",
+        "output": "NO"
+      },
+      {
+        "input": "-3 -1 \n -5 5",
+        "output": "YES"
+      },
+      {
+        "input": "-2 2 \n -4 0",
+        "output": "YES"
+      },
+      {
+        "input": "-11 2 \n -1 -1",
+        "output": "NO"
+      },
+      {
+        "input": "1 2 \n 3 5",
+        "output": "NO"
+      },
+      {
+        "input": "1 2 \n 1 2",
+        "output": "NO"
+      },
+      {
+        "input": "-2 -2 \n -3 -2",
+        "output": "NO"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the sum of magnitudes of the integers in a given array multiplied by the product of their signs. If the array is empty, return None.",
+    "signature": "int prod_signs(int arr_len, int[] arr)",
+    "example": "Input: 4 \n 1 2 2 -4 | Output: -9",
+    "tests": [
+      {
+        "input": "4 \n 1 2 2 -4",
+        "output": -9
+      },
+      {
+        "input": "2 \n 0 1",
+        "output": 0
+      },
+      {
+        "input": "7 \n 1 1 1 2 3 -1 1",
+        "output": -10
+      },
+      {
+        "input": "0 \n",
+        "output": null
+      },
+      {
+        "input": "7 \n 2 4 1 2 -1 -1 9",
+        "output": 20
+      },
+      {
+        "input": "4 \n -1 1 -1 1",
+        "output": 4
+      },
+      {
+        "input": "4 \n -1 1 1 1",
+        "output": -4
+      },
+      {
+        "input": "4 \n -1 1 1 0",
+        "output": 0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that finds the minimum path of length k in a given square grid of integers, where each cell is unique and adjacent moves are allowed.",
+    "signature": "int[] minPath(int grid_size, int[][] grid, int k)",
+    "example": "Input: 3 \n 1 2 3 4 5 6 7 8 9 \n 3 | Output: 1 2 1",
+    "tests": [
+      {
+        "input": "3 \n 1 2 3 4 5 6 7 8 9 \n 3",
+        "output": [
+          1,
+          2,
+          1
+        ]
+      },
+      {
+        "input": "3 \n 5 9 3 4 1 6 7 8 2 \n 1",
+        "output": [
+          1
+        ]
+      },
+      {
+        "input": "4 \n 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 \n 4",
+        "output": [
+          1,
+          2,
+          1,
+          2
+        ]
+      },
+      {
+        "input": "4 \n 6 4 13 10 5 7 12 1 3 16 11 15 8 14 9 2 \n 7",
+        "output": [
+          1,
+          10,
+          1,
+          10,
+          1,
+          10,
+          1
+        ]
+      },
+      {
+        "input": "4 \n 8 14 9 2 6 4 13 15 5 7 1 12 3 10 11 16 \n 5",
+        "output": [
+          1,
+          7,
+          1,
+          7,
+          1
+        ]
+      },
+      {
+        "input": "4 \n 11 8 7 2 5 16 14 4 9 3 15 6 12 13 10 1 \n 9",
+        "output": [
+          1,
+          6,
+          1,
+          6,
+          1,
+          6,
+          1,
+          6,
+          1
+        ]
+      },
+      {
+        "input": "4 \n 12 13 10 1 9 3 15 6 5 16 14 4 11 8 7 2 \n 12",
+        "output": [
+          1,
+          6,
+          1,
+          6,
+          1,
+          6,
+          1,
+          6,
+          1,
+          6,
+          1,
+          6
+        ]
+      },
+      {
+        "input": "3 \n 2 7 4 3 1 5 6 8 9 \n 8",
+        "output": [
+          1,
+          3,
+          1,
+          3,
+          1,
+          3,
+          1,
+          3
+        ]
+      },
+      {
+        "input": "3 \n 6 1 5 3 8 9 2 7 4 \n 8",
+        "output": [
+          1,
+          5,
+          1,
+          5,
+          1,
+          5,
+          1,
+          5
+        ]
+      },
+      {
+        "input": "2 \n 1 2 3 4 \n 10",
+        "output": [
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2,
+          1,
+          2
+        ]
+      },
+      {
+        "input": "2 \n 1 3 3 2 \n 10",
+        "output": [
+          1,
+          3,
+          1,
+          3,
+          1,
+          3,
+          1,
+          3,
+          1,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns an array of the first n+1 numbers of the Tribonacci sequence.",
+    "signature": "float[] tri(int n)",
+    "example": "Input: 3 | Output: 1 3 2 8",
+    "tests": [
+      {
+        "input": "3",
+        "output": [
+          1,
+          3,
+          2.0,
+          8.0
+        ]
+      },
+      {
+        "input": "4",
+        "output": [
+          1,
+          3,
+          2.0,
+          8.0,
+          3.0
+        ]
+      },
+      {
+        "input": "5",
+        "output": [
+          1,
+          3,
+          2.0,
+          8.0,
+          3.0,
+          15.0
+        ]
+      },
+      {
+        "input": "6",
+        "output": [
+          1,
+          3,
+          2.0,
+          8.0,
+          3.0,
+          15.0,
+          4.0
+        ]
+      },
+      {
+        "input": "7",
+        "output": [
+          1,
+          3,
+          2.0,
+          8.0,
+          3.0,
+          15.0,
+          4.0,
+          24.0
+        ]
+      },
+      {
+        "input": "8",
+        "output": [
+          1,
+          3,
+          2.0,
+          8.0,
+          3.0,
+          15.0,
+          4.0,
+          24.0,
+          5.0
+        ]
+      },
+      {
+        "input": "9",
+        "output": [
+          1,
+          3,
+          2.0,
+          8.0,
+          3.0,
+          15.0,
+          4.0,
+          24.0,
+          5.0,
+          35.0
+        ]
+      },
+      {
+        "input": "20",
+        "output": [
+          1,
+          3,
+          2.0,
+          8.0,
+          3.0,
+          15.0,
+          4.0,
+          24.0,
+          5.0,
+          35.0,
+          6.0,
+          48.0,
+          7.0,
+          63.0,
+          8.0,
+          80.0,
+          9.0,
+          99.0,
+          10.0,
+          120.0,
+          11.0
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a positive integer n, returns the product of the odd digits. Return 0 if all digits are even.",
+    "signature": "int digits(int n)",
+    "example": "Input: 1 | Output: 1",
+    "tests": [
+      {
+        "input": "5",
+        "output": 5
+      },
+      {
+        "input": "54",
+        "output": 5
+      },
+      {
+        "input": "120",
+        "output": 1
+      },
+      {
+        "input": "5014",
+        "output": 5
+      },
+      {
+        "input": "98765",
+        "output": 315
+      },
+      {
+        "input": "5576543",
+        "output": 2625
+      },
+      {
+        "input": "2468",
+        "output": 0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a string containing only square brackets and returns a logical value indicating if there is a valid subsequence of brackets with at least one nested bracket.",
+    "signature": "bool is_nested(string s)",
+    "example": "Input: [[]] | Output: true",
+    "tests": [
+      {
+        "input": "[[]]",
+        "output": true
+      },
+      {
+        "input": "[]]]]]]][[[[[]",
+        "output": false
+      },
+      {
+        "input": "[][]",
+        "output": false
+      },
+      {
+        "input": "[]",
+        "output": false
+      },
+      {
+        "input": "[[[[]]]]",
+        "output": true
+      },
+      {
+        "input": "[]]]]]]]]]]",
+        "output": false
+      },
+      {
+        "input": "[][][[]]",
+        "output": true
+      },
+      {
+        "input": "[[]",
+        "output": false
+      },
+      {
+        "input": "[]]",
+        "output": false
+      },
+      {
+        "input": "[[]][[",
+        "output": true
+      },
+      {
+        "input": "[[][]]",
+        "output": true
+      },
+      {
+        "input": "",
+        "output": false
+      },
+      {
+        "input": "[[[[[[[[",
+        "output": false
+      },
+      {
+        "input": "]]]]]]]]]",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an array of numbers, returns the sum of the squares of the numbers after rounding each element to the upper integer (ceiling).",
+    "signature": "int sum_squares(int lst_len, float[] lst)",
+    "example": "Input: 3 \n 1 2 3 | Output: 14",
+    "tests": [
+      {
+        "input": "3 \n 1 2 3",
+        "output": 14
+      },
+      {
+        "input": "3 \n 1.0 2 3",
+        "output": 14
+      },
+      {
+        "input": "4 \n 1 3 5 7",
+        "output": 84
+      },
+      {
+        "input": "3 \n 1.4 4.2 0",
+        "output": 29
+      },
+      {
+        "input": "3 \n -2.4 1 1",
+        "output": 6
+      },
+      {
+        "input": "4 \n 100 1 15 2",
+        "output": 10230
+      },
+      {
+        "input": "2 \n 10000 10000",
+        "output": 200000000
+      },
+      {
+        "input": "3 \n -1.4 4.6 6.3",
+        "output": 75
+      },
+      {
+        "input": "4 \n -1.4 17.9 18.9 19.9",
+        "output": 1086
+      },
+      {
+        "input": "1 \n 0",
+        "output": 0
+      },
+      {
+        "input": "3 \n -1 1 0",
+        "output": 2
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns a logical value indicating if the last character of a given string is an alphabetical character and not part of a word.",
+    "signature": "bool check_if_last_char_is_a_letter(string txt)",
+    "example": "Input: apple pie | Output: false",
+    "tests": [
+      {
+        "input": "apple",
+        "output": false
+      },
+      {
+        "input": "apple pi e",
+        "output": true
+      },
+      {
+        "input": "eeeee",
+        "output": false
+      },
+      {
+        "input": "A",
+        "output": true
+      },
+      {
+        "input": "Pumpkin pie ",
+        "output": false
+      },
+      {
+        "input": "Pumpkin pie 1",
+        "output": false
+      },
+      {
+        "input": "",
+        "output": false
+      },
+      {
+        "input": "eeeee e ",
+        "output": false
+      },
+      {
+        "input": "apple pie",
+        "output": false
+      },
+      {
+        "input": "apple pi e ",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the largest index of an element in an array which is not greater than or equal to the element immediately preceding it, or -1 if no such element exists.",
+    "signature": "int can_arrange(int arr_len, int[] arr)",
+    "example": "Input: 5 \n 1 2 4 3 5 | Output: 3",
+    "tests": [
+      {
+        "input": "5 \n 1 2 4 3 5",
+        "output": 3
+      },
+      {
+        "input": "4 \n 1 2 4 5",
+        "output": -1
+      },
+      {
+        "input": "9 \n 1 4 2 5 6 7 8 9 10",
+        "output": 2
+      },
+      {
+        "input": "5 \n 4 8 5 7 3",
+        "output": 4
+      },
+      {
+        "input": "0",
+        "output": -1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns a pair (a, b) where a is the largest negative integer and b is the smallest positive integer in an array. If there is no such negative or positive integer, return None for that element.",
+    "signature": "tuple largest_smallest_integers(int lst_len, int[] lst)",
+    "example": "Input: 6 \n 2 4 1 3 5 7 | Output: None 1",
+    "tests": [
+      {
+        "input": "6 \n 2 4 1 3 5 7",
+        "output": [
+          null,
+          1
+        ]
+      },
+      {
+        "input": "7 \n 2 4 1 3 5 7 0",
+        "output": [
+          null,
+          1
+        ]
+      },
+      {
+        "input": "7 \n 1 3 2 4 5 6 -2",
+        "output": [
+          -2,
+          1
+        ]
+      },
+      {
+        "input": "7 \n 4 5 3 6 2 7 -7",
+        "output": [
+          -7,
+          2
+        ]
+      },
+      {
+        "input": "8 \n 7 3 8 4 9 2 5 -9",
+        "output": [
+          -9,
+          2
+        ]
+      },
+      {
+        "input": "0",
+        "output": [
+          null,
+          null
+        ]
+      },
+      {
+        "input": "1 \n 0",
+        "output": [
+          null,
+          null
+        ]
+      },
+      {
+        "input": "4 \n -1 -3 -5 -6",
+        "output": [
+          -1,
+          null
+        ]
+      },
+      {
+        "input": "5 \n -1 -3 -5 -6 0",
+        "output": [
+          -1,
+          null
+        ]
+      },
+      {
+        "input": "5 \n -6 -4 -4 -3 1",
+        "output": [
+          -3,
+          1
+        ]
+      },
+      {
+        "input": "6 \n -6 -4 -4 -3 -100 1",
+        "output": [
+          -3,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes two inputs (which can be integers, floats, or strings representing real numbers) and returns the larger one in its original type, or None if they are equal.",
+    "signature": "any compare_one(any a, any b)",
+    "example": "Input: 1 \n 2.5 | Output: 2.5",
+    "tests": [
+      {
+        "input": "1 \n 2",
+        "output": 2
+      },
+      {
+        "input": "1 \n 2.5",
+        "output": 2.5
+      },
+      {
+        "input": "2 \n 3",
+        "output": 3
+      },
+      {
+        "input": "5 \n 6",
+        "output": 6
+      },
+      {
+        "input": "1 \n \"2,3\"",
+        "output": "2,3"
+      },
+      {
+        "input": "\"5,1\" \n \"6\"",
+        "output": "6"
+      },
+      {
+        "input": "\"1\" \n \"2\"",
+        "output": "2"
+      },
+      {
+        "input": "\"1\" \n 1",
+        "output": null
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that evaluates whether the given integer n can be written as the sum of exactly 4 positive even numbers.",
+    "signature": "bool is_equal_to_sum_even(int n)",
+    "example": "Input: 4 | Output: false",
+    "tests": [
+      {
+        "input": "4",
+        "output": false
+      },
+      {
+        "input": "6",
+        "output": false
+      },
+      {
+        "input": "8",
+        "output": true
+      },
+      {
+        "input": "10",
+        "output": true
+      },
+      {
+        "input": "11",
+        "output": false
+      },
+      {
+        "input": "12",
+        "output": true
+      },
+      {
+        "input": "13",
+        "output": false
+      },
+      {
+        "input": "16",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given a positive integer n, returns the Brazilian factorial defined as n! * (n-1)! * ... * 1!.",
+    "signature": "long special_factorial(int n)",
+    "example": "Input: 4 | Output: 288",
+    "tests": [
+      {
+        "input": "4",
+        "output": 288
+      },
+      {
+        "input": "5",
+        "output": 34560
+      },
+      {
+        "input": "7",
+        "output": 125411328000
+      },
+      {
+        "input": "1",
+        "output": 1
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that given a string text, replaces all spaces with underscores, and if the string has more than 2 consecutive spaces then replaces all consecutive spaces with a hyphen.",
+    "signature": "string fix_spaces(string text)",
+    "example": "Input: Example | Output: Example",
+    "tests": [
+      {
+        "input": "Example",
+        "output": "Example"
+      },
+      {
+        "input": "Mudasir Hanif ",
+        "output": "Mudasir_Hanif_"
+      },
+      {
+        "input": "Yellow Yellow  Dirty  Fellow",
+        "output": "Yellow_Yellow__Dirty__Fellow"
+      },
+      {
+        "input": "Exa   mple",
+        "output": "Exa-mple"
+      },
+      {
+        "input": "   Exa 1 2 2 mple",
+        "output": "-Exa_1_2_2_mple"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a string representing a file's name and returns 'Yes' if the file name is valid and 'No' otherwise according to the given conditions.",
+    "signature": "string file_name_check(string file_name)",
+    "example": "Input: example.txt | Output: Yes",
+    "tests": [
+      {
+        "input": "example.txt",
+        "output": "Yes"
+      },
+      {
+        "input": "1example.dll",
+        "output": "No"
+      },
+      {
+        "input": "s1sdf3.asd",
+        "output": "No"
+      },
+      {
+        "input": "K.dll",
+        "output": "Yes"
+      },
+      {
+        "input": "MY16FILE3.exe",
+        "output": "Yes"
+      },
+      {
+        "input": "His12FILE94.exe",
+        "output": "No"
+      },
+      {
+        "input": "_Y.txt",
+        "output": "No"
+      },
+      {
+        "input": "?aREYA.exe",
+        "output": "No"
+      },
+      {
+        "input": "/this_is_valid.dll",
+        "output": "No"
+      },
+      {
+        "input": "this_is_valid.wow",
+        "output": "No"
+      },
+      {
+        "input": "this_is_valid.txt",
+        "output": "Yes"
+      },
+      {
+        "input": "this_is_valid.txtexe",
+        "output": "No"
+      },
+      {
+        "input": "#this2_i4s_5valid.ten",
+        "output": "No"
+      },
+      {
+        "input": "@this1_is6_valid.exe",
+        "output": "No"
+      },
+      {
+        "input": "this_is_12valid.6exe4.txt",
+        "output": "No"
+      },
+      {
+        "input": "all.exe.txt",
+        "output": "No"
+      },
+      {
+        "input": "I563_No.exe",
+        "output": "Yes"
+      },
+      {
+        "input": "Is3youfault.txt",
+        "output": "Yes"
+      },
+      {
+        "input": "no_one#knows.dll",
+        "output": "Yes"
+      },
+      {
+        "input": "1I563_Yes3.exe",
+        "output": "No"
+      },
+      {
+        "input": "I563_Yes3.txtt",
+        "output": "No"
+      },
+      {
+        "input": "final..txt",
+        "output": "No"
+      },
+      {
+        "input": "final132",
+        "output": "No"
+      },
+      {
+        "input": "_f4indsartal132.",
+        "output": "No"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an array of integers, squares the integer if its index is a multiple of 3, cubes it if its index is a multiple of 4 and not a multiple of 3, leaves the rest unchanged, and returns the sum of all entries.",
+    "signature": "int sum_squares(int lst_len, int[] lst)",
+    "example": "Input: 3\n1 2 3 | Output: 6",
+    "tests": [
+      {
+        "input": "3\n1 2 3",
+        "output": 6
+      },
+      {
+        "input": "3\n1 4 9",
+        "output": 14
+      },
+      {
+        "input": "0\n",
+        "output": 0
+      },
+      {
+        "input": "9\n1 1 1 1 1 1 1 1 1",
+        "output": 9
+      },
+      {
+        "input": "9\n-1 -1 -1 -1 -1 -1 -1 -1 -1",
+        "output": -3
+      },
+      {
+        "input": "1\n0",
+        "output": 0
+      },
+      {
+        "input": "5\n-1 -5 2 -1 -5",
+        "output": -126
+      },
+      {
+        "input": "5\n-56 -99 1 0 -2",
+        "output": 3030
+      },
+      {
+        "input": "9\n-1 0 0 0 0 0 0 0 -1",
+        "output": 0
+      },
+      {
+        "input": "15\n-16 -9 -2 36 36 26 -20 25 -40 20 -4 12 -26 35 37",
+        "output": -14196
+      },
+      {
+        "input": "20\n-1 -3 17 -1 -15 13 -1 14 -14 -12 -5 14 -14 6 13 11 16 16 4 10",
+        "output": -1448
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a string representing a sentence and returns a string containing the words from the original sentence whose lengths are prime numbers, preserving the original order.",
+    "signature": "string words_in_sentence(string sentence)",
+    "example": "Input: This is a test | Output: is",
+    "tests": [
+      {
+        "input": "This is a test",
+        "output": "is"
+      },
+      {
+        "input": "lets go for swimming",
+        "output": "go for"
+      },
+      {
+        "input": "there is no place available here",
+        "output": "there is no place"
+      },
+      {
+        "input": "Hi I am Hussein",
+        "output": "Hi am Hussein"
+      },
+      {
+        "input": "go for it",
+        "output": "go for it"
+      },
+      {
+        "input": "here",
+        "output": ""
+      },
+      {
+        "input": "here is",
+        "output": "is"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes two strings representing fractions in the format numerator/denominator and returns true if the product of these fractions is a whole number, and false otherwise.",
+    "signature": "bool simplify(string x, string n)",
+    "example": "Input: 1/5\n5/1 | Output: true",
+    "tests": [
+      {
+        "input": "1/5\n5/1",
+        "output": true
+      },
+      {
+        "input": "1/6\n2/1",
+        "output": false
+      },
+      {
+        "input": "5/1\n3/1",
+        "output": true
+      },
+      {
+        "input": "7/10\n10/2",
+        "output": false
+      },
+      {
+        "input": "2/10\n50/10",
+        "output": true
+      },
+      {
+        "input": "7/2\n4/2",
+        "output": true
+      },
+      {
+        "input": "11/6\n6/1",
+        "output": true
+      },
+      {
+        "input": "2/3\n5/2",
+        "output": false
+      },
+      {
+        "input": "5/2\n3/5",
+        "output": false
+      },
+      {
+        "input": "2/4\n8/4",
+        "output": true
+      },
+      {
+        "input": "2/4\n4/2",
+        "output": true
+      },
+      {
+        "input": "1/5\n5/1",
+        "output": true
+      },
+      {
+        "input": "1/5\n1/5",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an array of integers and sorts it in ascending order based on the sum of their digits, while preserving the original order for numbers with equal digit-sums.",
+    "signature": "int[] order_by_points(int nums_len, int[] nums)",
+    "example": "Input: 5\n1 11 -1 -11 -12 | Output: -1 -11 1 -12 11",
+    "tests": [
+      {
+        "input": "5\n1 11 -1 -11 -12",
+        "output": [
+          -1,
+          -11,
+          1,
+          -12,
+          11
+        ]
+      },
+      {
+        "input": "15\n1234 423 463 145 2 423 423 53 6 37 3457 3 56 0 46",
+        "output": [
+          0,
+          2,
+          3,
+          6,
+          53,
+          423,
+          423,
+          423,
+          1234,
+          145,
+          37,
+          46,
+          56,
+          463,
+          3457
+        ]
+      },
+      {
+        "input": "0\n",
+        "output": []
+      },
+      {
+        "input": "8\n1 -11 -32 43 54 -98 2 -3",
+        "output": [
+          -3,
+          -32,
+          -98,
+          -11,
+          1,
+          2,
+          43,
+          54
+        ]
+      },
+      {
+        "input": "11\n1 2 3 4 5 6 7 8 9 10 11",
+        "output": [
+          1,
+          10,
+          2,
+          11,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "input": "7\n0 6 6 -76 -21 23 4",
+        "output": [
+          -76,
+          -21,
+          0,
+          4,
+          23,
+          6,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an array of numbers and returns the count of elements that are greater than 10 and have both the first and last digits odd.",
+    "signature": "int specialFilter(int nums_len, int[] nums)",
+    "example": "Input: 4\n15 -73 14 -15 | Output: 1",
+    "tests": [
+      {
+        "input": "4\n5 -2 1 -5",
+        "output": 0
+      },
+      {
+        "input": "4\n15 -73 14 -15",
+        "output": 1
+      },
+      {
+        "input": "6\n33 -2 -3 45 21 109",
+        "output": 2
+      },
+      {
+        "input": "6\n43 -12 93 125 121 109",
+        "output": 4
+      },
+      {
+        "input": "6\n71 -2 -33 75 21 19",
+        "output": 3
+      },
+      {
+        "input": "1\n1",
+        "output": 0
+      },
+      {
+        "input": "0\n",
+        "output": 0
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes a positive integer n, constructs an integer array a of length n where a[i] = i*i - i + 1, and returns the number of triples (a[i], a[j], a[k]) with i < j < k such that their sum is a multiple of 3.",
+    "signature": "int get_max_triples(int n)",
+    "example": "Input: 5 | Output: 1",
+    "tests": [
+      {
+        "input": "5",
+        "output": 1
+      },
+      {
+        "input": "6",
+        "output": 4
+      },
+      {
+        "input": "10",
+        "output": 36
+      },
+      {
+        "input": "100",
+        "output": 53361
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes two strings representing planet names and returns an array of strings containing all planets whose orbits are between the given two, ordered by their proximity to the sun. The program should return an empty array if any planet name is not valid or if the two planets are the same or not in proper order.",
+    "signature": "string[] bf(string planet1, string planet2)",
+    "example": "Input: Jupiter\nNeptune | Output: Saturn Uranus",
+    "tests": [
+      {
+        "input": "Jupiter\nNeptune",
+        "output": [
+          "Saturn",
+          "Uranus"
+        ]
+      },
+      {
+        "input": "Earth\nMercury",
+        "output": [
+          "Venus"
+        ]
+      },
+      {
+        "input": "Mercury\nUranus",
+        "output": [
+          "Venus",
+          "Earth",
+          "Mars",
+          "Jupiter",
+          "Saturn"
+        ]
+      },
+      {
+        "input": "Neptune\nVenus",
+        "output": [
+          "Earth",
+          "Mars",
+          "Jupiter",
+          "Saturn",
+          "Uranus"
+        ]
+      },
+      {
+        "input": "Earth\nEarth",
+        "output": []
+      },
+      {
+        "input": "Mars\nEarth",
+        "output": []
+      },
+      {
+        "input": "Jupiter\nMakemake",
+        "output": []
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that takes an array of strings, removes the strings with odd lengths, and returns a sorted array of the remaining strings in ascending order by length and alphabetically if lengths are equal.",
+    "signature": "string[] sorted_list_sum(int lst_len, string[] lst)",
+    "example": "Input: 3\naa a aaa | Output: aa",
+    "tests": [
+      {
+        "input": "3\naa a aaa",
+        "output": [
+          "aa"
+        ]
+      },
+      {
+        "input": "4\nschool AI asdf b",
+        "output": [
+          "AI",
+          "asdf",
+          "school"
+        ]
+      },
+      {
+        "input": "4\nd b c a",
+        "output": []
+      },
+      {
+        "input": "4\nd dcba abcd a",
+        "output": [
+          "abcd",
+          "dcba"
+        ]
+      },
+      {
+        "input": "3\nAI ai au",
+        "output": [
+          "AI",
+          "ai",
+          "au"
+        ]
+      },
+      {
+        "input": "6\na b b c c a",
+        "output": []
+      },
+      {
+        "input": "4\naaaa bbbb dd cc",
+        "output": [
+          "cc",
+          "dd",
+          "aaaa",
+          "bbbb"
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the value of x if n is a prime number and returns the value of y otherwise.",
+    "signature": "int x_or_y(int n, int x, int y)",
+    "example": "Input: 7 \n 34 \n 12 | Output: 34",
+    "tests": [
+      {
+        "input": "7 \n 34 \n 12",
+        "output": 34
+      },
+      {
+        "input": "15 \n 8 \n 5",
+        "output": 5
+      },
+      {
+        "input": "3 \n 33 \n 5212",
+        "output": 33
+      },
+      {
+        "input": "1259 \n 3 \n 52",
+        "output": 3
+      },
+      {
+        "input": "7919 \n -1 \n 12",
+        "output": -1
+      },
+      {
+        "input": "3609 \n 1245 \n 583",
+        "output": 583
+      },
+      {
+        "input": "91 \n 56 \n 129",
+        "output": 129
+      },
+      {
+        "input": "6 \n 34 \n 1234",
+        "output": 1234
+      },
+      {
+        "input": "1 \n 2 \n 0",
+        "output": 0
+      },
+      {
+        "input": "2 \n 2 \n 0",
+        "output": 2
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that returns the sum of squares of the numbers in the given array that are odd, ignoring numbers that are negative or not integers. If the input array is empty, return 0.",
+    "signature": "int double_the_difference(int lst_len, float[] lst)",
+    "example": "Input: 4 \n 1 3 2 0 | Output: 10",
+    "tests": [
+      {
+        "input": "0 \n",
+        "output": 0
+      },
+      {
+        "input": "2 \n 5 4",
+        "output": 25
+      },
+      {
+        "input": "3 \n 0.1 0.2 0.3",
+        "output": 0
+      },
+      {
+        "input": "3 \n -10 -20 -30",
+        "output": 0
+      },
+      {
+        "input": "3 \n -1 -2 8",
+        "output": 0
+      },
+      {
+        "input": "3 \n 0.2 3 5",
+        "output": 34
+      },
+      {
+        "input": "100 \n -99 -97 -95 -93 -91 -89 -87 -85 -83 -81 -79 -77 -75 -73 -71 -69 -67 -65 -63 -61 -59 -57 -55 -53 -51 -49 -47 -45 -43 -41 -39 -37 -35 -33 -31 -29 -27 -25 -23 -21 -19 -17 -15 -13 -11 -9 -7 -5 -3 -1 1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47 49 51 53 55 57 59 61 63 65 67 69 71 73 75 77 79 81 83 85 87 89 91 93 95 97 99",
+        "output": 166650
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that compares two arrays of scores and guesses. It returns an array where each element is 0 if the guess is correct and otherwise the absolute difference between the score and the guess.",
+    "signature": "int[] compare(int game_len, int[] game, int guess_len, int[] guess)",
+    "example": "Input: 6 \n 1 2 3 4 5 1 \n 6 \n 1 2 3 4 2 -2 | Output: 0 0 0 0 3 3",
+    "tests": [
+      {
+        "input": "6 \n 1 2 3 4 5 1 \n 6 \n 1 2 3 4 2 -2",
+        "output": [
+          0,
+          0,
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "input": "6 \n 0 0 0 0 0 0 \n 6 \n 0 0 0 0 0 0",
+        "output": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "input": "3 \n 1 2 3 \n 3 \n -1 -2 -3",
+        "output": [
+          2,
+          4,
+          6
+        ]
+      },
+      {
+        "input": "4 \n 1 2 3 5 \n 4 \n -1 2 3 4",
+        "output": [
+          2,
+          0,
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that determines the strongest extension for a given class. The program receives a class name and an array of extensions (strings) and returns a string formatted as ClassName.StrongestExtension, where the strength is computed as the number of uppercase letters minus the number of lowercase letters. In the case of a tie, choose the first extension in the array.",
+    "signature": "string Strongest_Extension(string class_name, int extensions_len, string[] extensions)",
+    "example": "Input: my_class \n 3 \n AA Be CC | Output: my_class.AA",
+    "tests": [
+      {
+        "input": "Watashi \n 3 \n tEN niNE eIGHt8OKe",
+        "output": "Watashi.eIGHt8OKe"
+      },
+      {
+        "input": "Boku123 \n 4 \n nani NazeDa YEs.WeCaNe 32145tggg",
+        "output": "Boku123.YEs.WeCaNe"
+      },
+      {
+        "input": "__YESIMHERE \n 6 \n t eMptY nothing zeR00 NuLl__ 123NoooneB321",
+        "output": "__YESIMHERE.NuLl__"
+      },
+      {
+        "input": "K \n 4 \n Ta TAR t234An cosSo",
+        "output": "K.TAR"
+      },
+      {
+        "input": "__HAHA \n 4 \n Tab 123 781345 -_-",
+        "output": "__HAHA.123"
+      },
+      {
+        "input": "YameRore \n 5 \n HhAas okIWILL123 WorkOut Fails -_-",
+        "output": "YameRore.okIWILL123"
+      },
+      {
+        "input": "finNNalLLly \n 4 \n Die NowW Wow WoW",
+        "output": "finNNalLLly.WoW"
+      },
+      {
+        "input": "_ \n 2 \n Bb 91245",
+        "output": "_.Bb"
+      },
+      {
+        "input": "Sp \n 2 \n 671235 Bb",
+        "output": "Sp.671235"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that checks if the second word or any of its rotations is a substring of the first word.",
+    "signature": "bool cycpattern_check(string a, string b)",
+    "example": "Input: abcd \n abd | Output: false",
+    "tests": [
+      {
+        "input": "xyzw \n xyw",
+        "output": false
+      },
+      {
+        "input": "yello \n ell",
+        "output": true
+      },
+      {
+        "input": "whattup \n ptut",
+        "output": false
+      },
+      {
+        "input": "efef \n fee",
+        "output": true
+      },
+      {
+        "input": "abab \n aabb",
+        "output": false
+      },
+      {
+        "input": "winemtt \n tinem",
+        "output": true
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given an integer, returns a tuple (pair) containing the count of even digits and the count of odd digits in the integer.",
+    "signature": "tuple even_odd_count(int num)",
+    "example": "Input: -12 | Output: 1 1",
+    "tests": [
+      {
+        "input": "7",
+        "output": [
+          0,
+          1
+        ]
+      },
+      {
+        "input": "-78",
+        "output": [
+          1,
+          1
+        ]
+      },
+      {
+        "input": "3452",
+        "output": [
+          2,
+          2
+        ]
+      },
+      {
+        "input": "346211",
+        "output": [
+          3,
+          3
+        ]
+      },
+      {
+        "input": "-345821",
+        "output": [
+          3,
+          3
+        ]
+      },
+      {
+        "input": "-2",
+        "output": [
+          1,
+          0
+        ]
+      },
+      {
+        "input": "-45347",
+        "output": [
+          2,
+          3
+        ]
+      },
+      {
+        "input": "0",
+        "output": [
+          1,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that converts a positive integer (1 to 1000) into its roman numeral equivalent in lowercase.",
+    "signature": "string int_to_mini_roman(int number)",
+    "example": "Input: 19 | Output: xix",
+    "tests": [
+      {
+        "input": "19",
+        "output": "xix"
+      },
+      {
+        "input": "152",
+        "output": "clii"
+      },
+      {
+        "input": "251",
+        "output": "ccli"
+      },
+      {
+        "input": "426",
+        "output": "cdxxvi"
+      },
+      {
+        "input": "500",
+        "output": "d"
+      },
+      {
+        "input": "1",
+        "output": "i"
+      },
+      {
+        "input": "4",
+        "output": "iv"
+      },
+      {
+        "input": "43",
+        "output": "xliii"
+      },
+      {
+        "input": "90",
+        "output": "xc"
+      },
+      {
+        "input": "94",
+        "output": "xciv"
+      },
+      {
+        "input": "532",
+        "output": "dxxxii"
+      },
+      {
+        "input": "900",
+        "output": "cm"
+      },
+      {
+        "input": "994",
+        "output": "cmxciv"
+      },
+      {
+        "input": "1000",
+        "output": "m"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that determines if three given side lengths can form a right-angled triangle.",
+    "signature": "bool right_angle_triangle(int a, int b, int c)",
+    "example": "Input: 3 \n 4 \n 5 | Output: true",
+    "tests": [
+      {
+        "input": "3 \n 4 \n 5",
+        "output": true
+      },
+      {
+        "input": "1 \n 2 \n 3",
+        "output": false
+      },
+      {
+        "input": "10 \n 6 \n 8",
+        "output": true
+      },
+      {
+        "input": "2 \n 2 \n 2",
+        "output": false
+      },
+      {
+        "input": "7 \n 24 \n 25",
+        "output": true
+      },
+      {
+        "input": "10 \n 5 \n 7",
+        "output": false
+      },
+      {
+        "input": "5 \n 12 \n 13",
+        "output": true
+      },
+      {
+        "input": "15 \n 8 \n 17",
+        "output": true
+      },
+      {
+        "input": "48 \n 55 \n 73",
+        "output": true
+      },
+      {
+        "input": "1 \n 1 \n 1",
+        "output": false
+      },
+      {
+        "input": "2 \n 2 \n 10",
+        "output": false
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that accepts an array of strings and returns the word with the maximum number of unique characters. In case of a tie, return the lexicographically smallest among those.",
+    "signature": "string find_max(int words_len, string[] words)",
+    "example": "Input: 3 \n name of string | Output: string",
+    "tests": [
+      {
+        "input": "3 \n name of string",
+        "output": "string"
+      },
+      {
+        "input": "3 \n name enam game",
+        "output": "enam"
+      },
+      {
+        "input": "3 \n aaaaaaa bb cc",
+        "output": "aaaaaaa"
+      },
+      {
+        "input": "2 \n abc cba",
+        "output": "abc"
+      },
+      {
+        "input": "5 \n play this game of footbott",
+        "output": "footbott"
+      },
+      {
+        "input": "4 \n we are gonna rock",
+        "output": "gonna"
+      },
+      {
+        "input": "5 \n we are a mad nation",
+        "output": "nation"
+      },
+      {
+        "input": "4 \n this is a prrk",
+        "output": "this"
+      },
+      {
+        "input": "1 \n b",
+        "output": "b"
+      },
+      {
+        "input": "3 \n play play play",
+        "output": "play"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that simulates a hungry rabbit. Given the number of carrots already eaten, the number of carrots needed, and the number of remaining carrots available, return an array of two integers: the total carrots eaten after the meal and the carrots left. If there are not enough remaining carrots, the rabbit eats all and remains hungry.",
+    "signature": "int[2] eat(int number, int need, int remaining)",
+    "example": "Input: 5 \n 6 \n 10 | Output: 11 4",
+    "tests": [
+      {
+        "input": "5 \n 6 \n 10",
+        "output": [
+          11,
+          4
+        ]
+      },
+      {
+        "input": "4 \n 8 \n 9",
+        "output": [
+          12,
+          1
+        ]
+      },
+      {
+        "input": "1 \n 10 \n 10",
+        "output": [
+          11,
+          0
+        ]
+      },
+      {
+        "input": "2 \n 11 \n 5",
+        "output": [
+          7,
+          0
+        ]
+      },
+      {
+        "input": "4 \n 5 \n 7",
+        "output": [
+          9,
+          2
+        ]
+      },
+      {
+        "input": "4 \n 5 \n 1",
+        "output": [
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that builds an algebraic expression from given arrays of operators and operands and returns the evaluation of the expression.",
+    "signature": "int do_algebra(int operator_len, string[] operator, int operand_len, int[] operand)",
+    "example": "Input: 3 \n + * - \n 4 \n 2 3 4 5 | Output: 9",
+    "tests": [
+      {
+        "input": "Input: 3 \n ** * + \n 4 \n 2 3 4 5",
+        "output": 37
+      },
+      {
+        "input": "Input: 3 \n + * - \n 4 \n 2 3 4 5",
+        "output": 9
+      },
+      {
+        "input": "Input: 2 \n // * \n 3 \n 7 3 4",
+        "output": 8
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that processes a given string: if the string contains any letters, reverse each letter's case; otherwise, if the string contains no letters, reverse the string.",
+    "signature": "string solve(string s)",
+    "example": "Input: AsDf | Output: aSdF",
+    "tests": [
+      {
+        "input": "Input: AsDf",
+        "output": "aSdF"
+      },
+      {
+        "input": "Input: 1234",
+        "output": "4321"
+      },
+      {
+        "input": "Input: ab",
+        "output": "AB"
+      },
+      {
+        "input": "Input: #a@C",
+        "output": "#A@c"
+      },
+      {
+        "input": "Input: #AsdfW^45",
+        "output": "#aSDFw^45"
+      },
+      {
+        "input": "Input: #6@2",
+        "output": "2@6#"
+      },
+      {
+        "input": "Input: #$a^D",
+        "output": "#$A^d"
+      },
+      {
+        "input": "Input: #ccc",
+        "output": "#CCC"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that computes the MD5 hash of a given string and returns the hash as a string. Return None if the input string is empty.",
+    "signature": "string string_to_md5(string text)",
+    "example": "Input: Hello world | Output: 3e25960a79dbc69b674cd4ec67a72c62",
+    "tests": [
+      {
+        "input": "Input: Hello world",
+        "output": "3e25960a79dbc69b674cd4ec67a72c62"
+      },
+      {
+        "input": "Input: ",
+        "output": null
+      },
+      {
+        "input": "Input: A B C",
+        "output": "0ef78513b0cb8cef12743f5aeb35f888"
+      },
+      {
+        "input": "Input: password",
+        "output": "5f4dcc3b5aa765d61d8327deb882cf99"
+      }
+    ]
+  },
+  {
+    "task": "Write a Fortran90 program that, given two positive integers, returns an array of even one-digit integers between the smaller and larger of the two numbers in ascending order.",
+    "signature": "int[] generate_integers(int a, int b)",
+    "example": "Input: 2 \n 10 | Output: 2 4 6 8",
+    "tests": [
+      {
+        "input": "Input: 2 \n 10",
+        "output": [
+          2,
+          4,
+          6,
+          8
+        ]
+      },
+      {
+        "input": "Input: 10 \n 2",
+        "output": [
+          2,
+          4,
+          6,
+          8
+        ]
+      },
+      {
+        "input": "Input: 132 \n 2",
+        "output": [
+          2,
+          4,
+          6,
+          8
+        ]
+      },
+      {
+        "input": "Input: 17 \n 89",
+        "output": []
+      }
+    ]
+  }
+]
