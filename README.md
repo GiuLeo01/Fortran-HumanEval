@@ -11,7 +11,7 @@ The benchmark includes:
 - **Detailed result analysis** with pass@1 metrics
 - **Comprehensive error categorization** (compilation errors, runtime errors, incorrect output)
 
-  **IL BENCHMARK NON GESTISCE L'INFERENZA DEL LLM** ma si aspetta in input un file jsonl ben formattato.
+  **THE BENCHMARK DOES NOT HANDLE LLM INFERENCE** but expects a well-formatted jsonl file as input.
 
 
 ## Quick Start
@@ -22,16 +22,25 @@ The simple evaluation pipeline:
 3. **Run evaluation** using the provided script
 
 ### Inference
-- è altamente consigliato fornire le istruzioni comprese nel file system_prompt.txt
-- 
+- It is highly recommended to provide the instructions included in the system_prompt.txt file
+- To generate inference with an LLM, simply iterate over each record in the benchmark (benchmark.jsonl), providing the task description, signature, and example.
+  e.g.:
+```python
+messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"{task} \n Pseudocode Signature: {signature} \n Example: {example}"}
+        ]
+```
+  
+- The content of the 'tests' field should not be used in inference, it serves for the evaluation process.
 
 
 ### Best Practices
 
 
-
 - Ensure your LLM generates **complete Fortran programs** (not just functions)
-- Include proper **program structure** with `program`/`end program` blocks
+- Make sure that the string in the code field of each element in the responses.jsonl file is directly executable code, watch out for ``` ``` symbols!!!
+- Include proper **program structure** with 'program'/'end program' blocks
 - Handle **input/output formatting** according to test specifications
 - Test your pipeline with a **small subset** before full evaluation
 
@@ -42,7 +51,7 @@ The simple evaluation pipeline:
 1. **Python 3.7+** with pip
 2. **gfortran compiler** installed and available in PATH
 
-Se avete problemi con l'installazione di gfortran in Windows, usate WSL.
+If you have problems with gfortran installation on Windows, use WSL.
 
 ### Installation
 
@@ -73,7 +82,7 @@ python main.py responses.jsonl benchmark.json
 ### Advanced Options
 
 ```bash
-# Custom timeout (default: 120s)
+# Custom timeout (default: 120s) - timeout refers to the maximum time allowed for validation of a single task (i.e., compilation time + execution time of each test case). This prevents infinite loops.
 python main.py responses.jsonl benchmark.json --timeout 60
 
 # Save detailed results
@@ -89,23 +98,49 @@ Each line should contain a JSON object with the LLM-generated code:
 {"code": "program calculate\n  integer :: result\n  result = 2 + 2\n  write(*,*) result\nend program"}
 ```
 
-#### Benchmark File (`benchmark.json`) (Non va cambiato a meno che vogliate usare lo stesso formato per adattare altri benchmark)
-Array of test cases with input/output specifications:
+#### Benchmark File (`benchmark.json`) (Should not be changed unless you want to use the same format to adapt other benchmarks)
+Array of programming tasks with signatures, examples and test cases:
 ```json
 [
   {
-    "task": "Hello World",
+    "task": "Write a Fortran90 program that checks if in given array of numbers, are any two numbers closer to each other than given threshold.",
+    "signature": "bool has_close_elements(int numbers_len, float[] numbers, float threshold)",
+    "example": "Input: 3 \n 1.0 2.0 3.0 \n 0.5 | Output: false",
     "tests": [
       {
-        "input": "",
-        "output": "Hello, World!"
+        "input": "6 \n 1.0 2.0 3.9 4.0 5.0 2.2 \n 0.3",
+        "output": true
+      },
+      {
+        "input": "6 \n 1.0 2.0 3.9 4.0 5.0 2.2 \n 0.05",
+        "output": false
+      },
+      {
+        "input": "5 \n 1.0 2.0 5.9 4.0 5.0 \n 0.95",
+        "output": true
+      },
+      {
+        "input": "5 \n 1.0 2.0 5.9 4.0 5.0 \n 0.8",
+        "output": false
+      },
+      {
+        "input": "6 \n 1.0 2.0 3.0 4.0 5.0 2.0 \n 0.1",
+        "output": true
+      },
+      {
+        "input": "5 \n 1.1 2.2 3.1 4.1 5.1 \n 1.0",
+        "output": true
+      },
+      {
+        "input": "5 \n 1.1 2.2 3.1 4.1 5.1 \n 0.5",
+        "output": false
       }
     ]
   }
 ]
 ```
 
-## 📊 Output Metrics
+## Output Metrics
 
 - **Pass@1**: Percentage of problems solved correctly on the first attempt
 - **Compilation Errors**: Programs that failed to compile
@@ -113,30 +148,17 @@ Array of test cases with input/output specifications:
 - **Incorrect Output**: Programs that ran but produced wrong results
 - **Exceptions**: Unexpected errors during evaluation
 
-## 🏗️ Architecture
 
-
-### Evaluation Flow
-
-1. Load benchmark and responses from JSON/JSONL files
-2. Validate input format and file structure
-3. Compile each Fortran program using gfortran
-4. Execute compiled programs with test inputs
-5. Compare outputs against expected results
-6. Categorize results and generate comprehensive reports
-
-
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **OpenAI** for the original [HumanEval](https://github.com/openai/human-eval) benchmark
-- **GNU Fortran** community for the `gfortran` compiler
-- **Contributors** who help improve this evaluation framework
+- **GNU Fortran** community for the 'gfortran' compiler
 
-## 📚 Citation
+## Citation
 
 If you use this benchmark in your research, please cite:
 
