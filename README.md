@@ -1,6 +1,6 @@
 # Fortran HumanEval
 
-A **Quick and Dirty** Fortran90 adaptation of the [HumanEval](https://github.com/openai/human-eval) benchmark for evaluating Large Language Models (LLMs) on code generation tasks. This benchmark specifically tests the ability of language models to generate correct Fortran programs.
+A **Quick and Dirty** Fortran90 adaptation of the [HumanEval](https://github.com/openai/human-eval) benchmark for evaluating Large Language Models on code generation tasks. This benchmark specifically tests the ability of language models to generate correct Fortran programs.
 
 ## Overview
 
