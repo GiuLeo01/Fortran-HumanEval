@@ -2,7 +2,7 @@
 
 A **Quick and Dirty** Fortran90 adaptation of the [HumanEval](https://github.com/openai/human-eval) benchmark for evaluating Large Language Models (LLMs) on code generation tasks. This benchmark specifically tests the ability of language models to generate correct Fortran programs.
 
-## 🎯 Overview
+## Overview
 
 The benchmark includes:
 
@@ -15,6 +15,27 @@ The benchmark includes:
 
 
 ## Quick Start
+
+The simple evaluation pipeline:
+1. **Generate responses** for each problem in the benchmark
+2. **Format responses** as JSONL with `code` field
+3. **Run evaluation** using the provided script
+
+### Inference
+- è altamente consigliato fornire le istruzioni comprese nel file system_prompt.txt
+- 
+
+
+### Best Practices
+
+
+
+- Ensure your LLM generates **complete Fortran programs** (not just functions)
+- Include proper **program structure** with `program`/`end program` blocks
+- Handle **input/output formatting** according to test specifications
+- Test your pipeline with a **small subset** before full evaluation
+
+
 
 ### Prerequisites
 
@@ -103,23 +124,6 @@ Array of test cases with input/output specifications:
 4. Execute compiled programs with test inputs
 5. Compare outputs against expected results
 6. Categorize results and generate comprehensive reports
-
-
-## 🧪 Testing Your LLM
-
-To evaluate your language model:
-
-1. **Generate responses** for each problem in the benchmark
-2. **Format responses** as JSONL with `code` field
-3. **Run evaluation** using the provided script
-4. **Analyze results** using the comprehensive metrics
-
-### Best Practices
-
-- Ensure your LLM generates **complete Fortran programs** (not just functions)
-- Include proper **program structure** with `program`/`end program` blocks
-- Handle **input/output formatting** according to test specifications
-- Test your pipeline with a **small subset** before full evaluation
 
 
 ## 📝 License
