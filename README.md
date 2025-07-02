@@ -22,8 +22,8 @@ The simple evaluation pipeline:
 3. **Run evaluation** using the provided script
 
 ### Inference
-- It is highly recommended to provide the instructions included in the system_prompt.txt file
-- To generate inference with an LLM, simply iterate over each record in the benchmark (benchmark.jsonl), providing the task description, signature, and example.
+- It is highly recommended to provide the i**nstructions included in the system_prompt.txt** file
+- To generate inference with an LLM, simply iterate over each record in the benchmark (benchmark.jsonl), **providing the task description, signature, and example**.
   e.g.:
 ```python
 messages = [
@@ -39,7 +39,7 @@ messages = [
 
 
 - Ensure your LLM generates **complete Fortran programs** (not just functions)
-- Make sure that the string in the code field of each element in the responses.jsonl file is directly executable code, watch out for ``` ``` symbols!!!
+- Make sure that the string in the code field of each element in the responses.jsonl file is **directly executable code**, watch out for ``` ``` symbols!!!
 - Include proper **program structure** with 'program'/'end program' blocks
 - Handle **input/output formatting** according to test specifications
 - Test your pipeline with a **small subset** before full evaluation
@@ -92,14 +92,14 @@ python main.py responses.jsonl benchmark.json --output detailed_results.json
 ### Input Format
 
 #### Responses File (`responses.jsonl`)
-Each line should contain a JSON object with the LLM-generated code:
+**Each line** should contain a **JSON object with the LLM-generated code**:
 ```json
 {"code": "program hello\n  write(*,*) 'Hello, World!'\nend program"}
 {"code": "program calculate\n  integer :: result\n  result = 2 + 2\n  write(*,*) result\nend program"}
 ```
 
 #### Benchmark File (`benchmark.json`) (Should not be changed unless you want to use the same format to adapt other benchmarks)
-Array of programming tasks with signatures, examples and test cases:
+List of programming tasks with signatures, examples and test cases:
 ```json
 [
   {
